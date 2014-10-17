@@ -1,0 +1,3 @@
+laure_index:
+    path:   /
+    defaults:  { _controller: PortfolioLaureBundle:Default:index }
