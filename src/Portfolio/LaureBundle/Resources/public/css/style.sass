@@ -8,6 +8,7 @@ header
   height: 120px
   background-color: $black
   color: $white
+  z-index: 999
   ul
     list-style-type: none
     display: inline-block
@@ -28,10 +29,6 @@ header
           left: 6px
           right: 6px
 
-.content
-  width: 100%
-  height: 100%
-
 .homepage
   background-image: url('../images/background-homepage.png')
   background-size: cover
@@ -50,8 +47,34 @@ header
   -webkit-align-items: center
   img:first-child
     margin:
-      top: 250px
+      top: 100px
       bottom: 40px
   p
     margin:
       bottom: 80px
+
+.portfolio
+  background-color: $darkWhite
+  ul
+    li
+      position: relative
+      img
+        width: 100%
+      div
+        position: absolute
+        width: 96.1%
+        height: auto
+        bottom: 20px
+        padding: 10px
+        p
+          margin: 0
+          color: #ffffff
+          font-size: 24px
+        &.information
+          background-color: $white
+          p
+            color: $darkGrey
+            &:first-child
+              font-size: 16px
+            &:last-child
+              font-size: 12px

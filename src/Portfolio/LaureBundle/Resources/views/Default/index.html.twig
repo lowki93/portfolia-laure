@@ -6,4 +6,7 @@
     <p>Graphic designer • illustrator • motion designer • web designer</p>
     <img src="{{ asset('bundles/portfoliolaure/images/arrow.png') }}" alt="logo">
 </div>
+<div class="content portfolio">
+    {{ render(controller('PortfolioLaureBundle:Portfolio:index')) }}
+</div>
 {% endblock %}
