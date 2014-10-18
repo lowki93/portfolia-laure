@@ -1,1 +1,9 @@
-Hello !
+{% extends "::base.html.twig" %}
+
+{% block body %}
+<div class="content homepage">
+    <img src="{{ asset('bundles/portfoliolaure/images/logo/logo.png') }}" alt="logo">
+    <p>Graphic designer • illustrator • motion designer • web designer</p>
+    <img src="{{ asset('bundles/portfoliolaure/images/arrow.png') }}" alt="logo">
+</div>
+{% endblock %}

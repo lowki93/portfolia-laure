@@ -2,11 +2,30 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <title>{% block title %}Laure Portfolio{% endblock %}</title>
+        {% block stylesheets %}
+                {% stylesheets
+                'bundles/portfoliolaure/css/style.sass'
+                filter="sass,cssrewrite" output='css/style.css' %}
+                <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
+                {% endstylesheets %}
+        {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+        <header>
+            <div class="row">
+                <ul class="logo medium-3 columns">
+                    <li>LAURE M. JOY</li>
+                </ul>
+                <ul class="nav medium-5 columns">
+                    <li>PORTFOLIO</li>
+                    <li>ILLUSTRATIONS</li>
+                    <li>ABOUT</li>
+                    <li>CONTACT</li>
+                </ul>
+            </div>
+        </header>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
