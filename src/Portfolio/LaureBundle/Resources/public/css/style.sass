@@ -1,4 +1,4 @@
-@import foundation/normalize
+//@import foundation/normalize
 @import foundation/foundation
 @import variable
 
@@ -78,3 +78,32 @@ header
               font-size: 16px
             &:last-child
               font-size: 12px
+
+.illustration
+  background-color: $lightWhite
+  .row
+    div
+      border-radius: 5px
+      &.large-6
+        position: relative
+        div
+          position: absolute
+          bottom: 0
+          padding: 10px
+          color: $lightBlack
+          h3
+            color: $lightBlack
+          p
+            font-size: 24px
+      &.last
+        margin:
+          top: 40px
+    .information
+      padding: 10px
+      background-color: $white
+      p
+        color: $darkGrey
+        &:first-child
+          font-size: 16px
+        &:last-child
+          font-size: 12px

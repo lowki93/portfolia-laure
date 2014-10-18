@@ -1,12 +1,15 @@
 {% extends "::base.html.twig" %}
 
 {% block body %}
-<div class="content homepage">
+<div class="content rowMarginLess homepage">
     <img src="{{ asset('bundles/portfoliolaure/images/logo/logo.png') }}" alt="logo">
     <p>Graphic designer • illustrator • motion designer • web designer</p>
     <img src="{{ asset('bundles/portfoliolaure/images/arrow.png') }}" alt="logo">
 </div>
-<div class="content portfolio">
+<div class="content rowMarginLess portfolio">
     {{ render(controller('PortfolioLaureBundle:Portfolio:index')) }}
+</div>
+<div class="content rowMarginLess illustration">
+    {{ render(controller('PortfolioLaureBundle:Illustration:index')) }}
 </div>
 {% endblock %}
