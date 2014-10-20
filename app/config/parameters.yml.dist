@@ -16,4 +16,4 @@ parameters:
     locale:            en
     secret:            ThisTokenIsNotSoSecretChangeIt
 
-    #assetic.sass.bin: /usr/local/bin/sass
+    assetic.sass.bin: /usr/local/bin/sass

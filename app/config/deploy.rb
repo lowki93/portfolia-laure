@@ -28,3 +28,5 @@ set :php_bin, "php -d apc.enable_cli=0"
 
 # Be more verbose by uncommenting the following line
 logger.level = Logger::INFO
+
+set :update_assets_version, 	true
