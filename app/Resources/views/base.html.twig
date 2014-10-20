@@ -6,7 +6,7 @@
         {% block stylesheets %}
                 {% stylesheets
                 'bundles/portfoliolaure/css/style.sass'
-                filter="sass,cssrewrite" output='css/style.css' %}
+                filter="cssrewrite,sass" output='css/style.css' %}
                 <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
                 {% endstylesheets %}
         {% endblock %}
