@@ -3,12 +3,8 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Laure Portfolio{% endblock %}</title>
-        {% stylesheets
-            'bundles/portfoliolaure/css/foundation/normalize.css'
-            'bundles/portfoliolaure/css/foundation/foundation.css'
-            output='css/style.css' %}
-            <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
-        {% endstylesheets %}
+        <link href='bundles/portfoliolaure/css/foundation/normalize.css' type="text/css" rel="stylesheet" />
+        <link href='bundles/portfoliolaure/css/foundation/foundation.css' type="text/css" rel="stylesheet" />
         {% block stylesheets %}
                 {% stylesheets
                 'bundles/portfoliolaure/css/style.sass'
