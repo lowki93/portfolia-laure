@@ -4,7 +4,7 @@ require 'capistrano/ext/multistage'
 
 set :stages, %w(prod demo)
 
-set :application, "Portfolio Laure"
+set :application, "Laure Portfolio"
 set :app_path,    "app"
 set :user, "lowki"
 
