@@ -3,13 +3,17 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Laure Portfolio{% endblock %}</title>
-        <link href='bundles/portfoliolaure/css/foundation/normalize.css' type="text/css" rel="stylesheet" />
-        <link href='bundles/portfoliolaure/css/foundation/foundation.css' type="text/css" rel="stylesheet" />
+        {% stylesheets
+            'bundles/portfoliolaure/css/foundation/normalize.css'
+            'bundles/portfoliolaure/css/foundation/foundation.css'
+            filter="cssrewrite" %}
+            <link href="{{ asset_url }}" type="text/css" rel="stylesheet"/>
+        {% endstylesheets %}
         {% block stylesheets %}
                 {% stylesheets
-                'bundles/portfoliolaure/css/style.sass'
-                filter="cssrewrite,sass" output='css/style.css' %}
-                <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
+                    'bundles/portfoliolaure/css/style.sass'
+                    filter="cssrewrite,sass" output='css/style.css' %}
+                    <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
                 {% endstylesheets %}
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
