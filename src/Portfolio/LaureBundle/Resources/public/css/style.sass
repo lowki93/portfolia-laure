@@ -18,14 +18,24 @@ header
       width: auto
       display: inline-block
       line-height: 80px
+      cursor: pointer
+      a
+        +futura(medium)
+        color: $white
     &.logo
       li
-        font-size: 28px
+        a
+          font-size: 28px
     &.nav
       li
         padding:
           left: 6px
           right: 6px
+
+.scroll-area
+  position: relative
+  overflow: auto
+  height: 100%
 
 .homepage
   background-image: url('../images/background-homepage.png')

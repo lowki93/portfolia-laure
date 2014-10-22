@@ -20,19 +20,26 @@
     </head>
     <body>
         <header>
-            <div class="row">
+            <div id="nav" class="row">
                 <ul class="logo medium-3 columns">
-                    <li>LAURE M. JOY</li>
+                    <li><a href="#homepage">LAURE M. JOY</a></li>
                 </ul>
                 <ul class="nav medium-5 columns">
-                    <li>PORTFOLIO</li>
-                    <li>ILLUSTRATIONS</li>
-                    <li>ABOUT</li>
-                    <li>CONTACT</li>
+                    <li><a href="#portfolio">PORTFOLIO</a></li>
+                    <li><a href="#illustration">ILLUSTRATIONS</a></li>
+                    <li><a href="#about">ABOUT</a></li>
+                    <li><a href="#homepage">CONTACT</a></li>
                 </ul>
             </div>
         </header>
         {% block body %}{% endblock %}
+        {% javascripts
+            'bundles/portfoliolaure/js/jquery/jquery.js'
+            'bundles/portfoliolaure/js/jquery/jquery.smooth-scroll.min.js'
+            'bundles/portfoliolaure/js/portfolio.js'
+        %}
+            <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
         {% block javascripts %}{% endblock %}
     </body>
 </html>
