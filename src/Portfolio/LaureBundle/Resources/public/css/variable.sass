@@ -1,3 +1,5 @@
+@import futurama-font
+
 $black: #2c2f36
 $lightBlack: #363842
 $white: #ffffff
@@ -7,6 +9,11 @@ $red: #fd685b
 $lightGrey: #999999
 $darkGrey: #333333
 
+=futura($weight)
+  @if $weight == medium
+    font-family: 'futuraMedium'
+  //@else if $weight == light
+  //  font-family: 'dosislight'
 
 .rowMarginLess
   &:after
