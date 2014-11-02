@@ -28,11 +28,27 @@
                     <li><a href="#portfolio">PORTFOLIO</a></li>
                     <li><a href="#illustration">ILLUSTRATIONS</a></li>
                     <li><a href="#about">ABOUT</a></li>
-                    <li><a href="#homepage">CONTACT</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
                 </ul>
             </div>
         </header>
-        {% block body %}{% endblock %}
+        <div class="scroll-area" data-spy="scroll" data-target="#nav">
+            {% block body %}{% endblock %}
+            <footer>
+                <div class="row">
+                    <div class="large-6 columns">
+                        <h5>LOCATION</h5>
+                        <p>
+                            93100 Montreuil<br />France
+                        </p>
+                    </div>
+                    <div class="large-6 columns">
+                        <p>Laure</p>
+                        <p>© 2014 LaureMJoy. All Rights Reserved</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
         {% javascripts
             'bundles/portfoliolaure/js/jquery/jquery.js'
             'bundles/portfoliolaure/js/jquery/jquery.smooth-scroll.min.js'

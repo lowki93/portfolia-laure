@@ -1,7 +1,6 @@
 {% extends "::base.html.twig" %}
 
 {% block body %}
-<div class="scroll-area" data-spy="scroll" data-target="#nav">
     <div id="homepage" class="content rowMarginLess homepage">
         <img src="{{ asset('bundles/portfoliolaure/images/logo/logo.png') }}" alt="logo">
         <p>Graphic designer • illustrator • motion designer • web designer</p>
@@ -16,5 +15,10 @@
     <div id="about" class="content rowMarginLess about">
         {{ render(controller('PortfolioLaureBundle:About:index')) }}
     </div>
-</div>
+    <div class="content rowMarginLess workExperience">
+        {{ render(controller('PortfolioLaureBundle:WorkExperience:index')) }}
+    </div>
+    <div id="contact" class="content rowMarginLess contact">
+        {{ render(controller('PortfolioLaureBundle:Default:contact')) }}
+    </div>
 {% endblock %}

@@ -9,4 +9,7 @@ $(document).ready(function($){
         return false;
     });
 
+    $('.about div.circle').height($('.about div.circle').width());
+    console.log($('.workExperience div.medium-6:last-child').height());
+    $('.workExperience div.medium-6:first-child').height($('.workExperience div.medium-6:last-child').height());
 });

@@ -55,7 +55,6 @@ header
   -webkit-align-items: center
   img:first-child
     margin:
-      top: 100px
       bottom: 40px
   p
     margin:
@@ -118,3 +117,197 @@ header
 
 .about
   background-color: $darkWhite
+  p
+    text-align: center
+    font-size: 16px
+    line-height: 40px
+    margin-bottom: 40px
+  div.circle
+    border-radius: 50%
+    display: inline-block
+    width: 22%
+    margin:
+      right: 2%
+    &.cheerful
+      border: 10px solid $red
+      margin:
+        left: 10px
+    &.efficient
+      border: 10px solid $green
+    &.creative
+      border: 10px solid $blue
+    &.available
+      border: 10px solid $lightBlack
+    p
+      font-size: 56px
+      line-height: 20px
+      span
+        font-size: 16px
+.workExperience
+  background-color: $lightWhite
+  .row
+    padding:
+      top: 70px
+      bottom: 70px
+    .medium-6
+      display: inline-block
+      vertical-align: middle
+      &:first-child
+        h3
+          font-size: 28px
+          color: $lightBlack
+          margin-bottom: 40px
+        p
+          width: 70%
+          font-size: 16px
+          color: $darkBlack
+          line-height: 30px
+        ul
+          list-style: none
+          padding: 0
+          margin: 0
+        .linkedin
+          font-size: 16px
+          text-transform: uppercase
+          color: $white
+          background-color: $red
+          padding: 10px
+          border-radius: 5px
+        .pdfCv
+          color: $red
+          font-size: 16px
+          text-transform: uppercase
+      &:last-child
+        position: relative
+        border-left: 2px solid $grey
+        padding:
+          top: 70px
+          bottom: 55px
+        .date
+          margin:
+            left: -35px
+            bottom: 30px
+          width: 100%
+          span
+            background-color: $lightWhite
+            color: $grey
+            font-size: 18px
+          &.first
+            position: absolute
+            top: -25px
+            margin-bottom: 0
+          &.last
+            position: absolute
+            bottom: -25px
+            margin-bottom: 0
+        .experience
+          margin:
+            left: -26px
+            bottom: 60px
+          &.last
+            margin-bottom: 0
+          div
+            display: inline-block
+            vertical-align: middle
+            &.rectangle
+              width: 20px
+              height: 20px
+              background-color: $red
+              border-radius: 4px
+              margin-right: 20px
+            &.experienceLogo
+              width: 64px
+              overflow: hidden
+              padding: 5px
+              background-color: $white
+              border-radius: 25px
+              margin-right: 25px
+            &.experienceContent
+              h3
+                font-size: 18px
+                color: $lightBlack
+                margin: 0
+              p
+                margin: 0
+                &.experienceType
+                  font-size: 14px
+                  color: $darkBlack
+                &.experienceDate
+                  font-size: 13px
+                  color: $lightGrey
+
+.contact
+  min-height: 0
+  background-color: $darkWhite
+  p
+    text-align: center
+    color: $red
+    font-size: 16px
+    text-transform: uppercase
+    margin-top: 30px
+    line-height: 30px
+  form
+    margin-bottom: 80px
+    span
+      border-right: none
+      color: $red
+      background-color: $white
+
+    input
+      border-left: none
+      box-shadow: none
+      &:focus
+        border: 1px solid $red
+        border-left: none
+        box-shadow: none
+        background-color: $white
+        .prefix
+          border: 1px solid $red
+          border-right: none
+    .large-3
+      text-align: right
+      button
+        background-color: $red
+        color: $white
+        text-transform: uppercase
+        border-radius: 5px
+  .follow
+    background-image: url('../images/background-footer.jpg')
+    background-size: cover
+    background-position: center center
+    text-align: center
+    padding:
+      top: 55px
+      bottom: 50px
+    h2
+      margin:
+        bottom: 45px
+    ul
+      list-style: none
+      li
+        display: inline-block
+        margin-right: 20px
+
+footer
+  width: 100%
+  background-color: $black
+  color: $white
+  padding:
+    top: 20px
+    bottom: 20px
+  .large-6
+    p
+      margin: 0
+    &:first-child
+      h5
+        font-size: 13px
+        color: $grey
+      p
+        font-size: 15px
+        color: $darkBlack
+    &:last-child
+      text-align: right
+      p
+        &:last-child
+          font-size: 15px
+          color: $darkBlack
