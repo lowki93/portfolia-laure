@@ -9,5 +9,3 @@ namespace :deploy do
     run "rm -f #{current_path} && ln -s #{release_path} #{current_path}"
   end
 end
-
-after "deploy:create_symlink", "deploy:resymlink", "deploy:update_crontab"
