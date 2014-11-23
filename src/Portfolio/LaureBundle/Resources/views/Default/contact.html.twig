@@ -5,28 +5,37 @@
             You can contact me or just say hello !<br />i will answer to you
         </p>
         <form class="rowMarginLess">
-            <div class="large-6 columns">
+            <div class="large-6 columns name">
                 <div class="row collapse">
                     <div class="small-3 large-2 columns">
-                        <span class="prefix">http://</span>
+                        <span class="prefix"><i class="fa fa-user"></i></span>
                     </div>
                     <div class="small-9 large-10 columns">
-                        <input type="text" placeholder="Your name" />
+                        <input type="text" class="name" placeholder="Your name" />
                     </div>
                 </div>
             </div>
-            <div class="large-6 columns">
+            <div class="large-6 columns mail">
                 <div class="row collapse">
                     <div class="small-3 large-2 columns">
-                        <span class="prefix">http://</span>
+                        <span class="prefix"><i class="fa fa-envelope-o"></i></span>
                     </div>
                     <div class="small-9 large-10 columns">
-                        <input type="text" placeholder="Your name" />
+                        <input type="text" class="mail" placeholder="Your name" />
                     </div>
                 </div>
             </div>
-            <div class="large-12 columns">
-                <textarea></textarea>
+            <div class="large-12 columns text">
+                <div class="row collapse">
+                    <div class="small-3 large-1 columns">
+                        <span class="prefix"><i class="fa fa-pencil-square-o"></i></span>
+                    </div>
+                    <div class="small-9 large-11 columns">
+                        {#<input type="text" class="mail" placeholder="Your name" />#}
+                        <textarea class="text"></textarea>
+                    </div>
+                </div>
+                {#<textarea></textarea>#}
             </div>
             <div class="large-3 columns">
                 <button>send</button>

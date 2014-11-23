@@ -1,10 +1,10 @@
 {% extends "::base.html.twig" %}
 
 {% block body %}
-    <div id="homepage" class="content rowMarginLess homepage">
+    <div id="homepage" class="content rowMarginLess homepage flex">
         <img src="{{ asset('bundles/portfoliolaure/images/logo/logo.png') }}" alt="logo">
         <p>Graphic designer • illustrator • motion designer • web designer</p>
-        <img src="{{ asset('bundles/portfoliolaure/images/arrow.png') }}" alt="logo">
+        <a class="goToPorfolio flex" href="#portfolio"><i class="fa fa-long-arrow-down"></i></a>
     </div>
     <div id="portfolio" class="content rowMarginLess portfolio">
         {{ render(controller('PortfolioLaureBundle:Portfolio:index')) }}

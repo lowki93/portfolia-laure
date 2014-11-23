@@ -29,8 +29,9 @@ header
     &.nav
       li
         padding:
-          left: 6px
-          right: 6px
+          left: 10px
+          right: 10px
+        font-size: 14px
 
 .scroll-area
   position: relative
@@ -43,17 +44,15 @@ header
   background-position: center center
   text-align: center
   color: $lightBlack
+  +futura(medium)
   font-size: 18px
   text-transform: uppercase
-  display: flex
-  display: -webkit-flex
-  flex-direction: column
-  -webkit-flex-direction: column
-  justify-content: center
-  -webkit-justify-content: center
-  align-items: center
-  -webkit-align-items: center
-  img:first-child
+  a
+    width: 50px
+    height: 50px
+    color: $lightBlack
+    border: 1px solid $lightBlack
+    border-radius: 50%
     margin:
       bottom: 40px
   p
@@ -62,12 +61,25 @@ header
 
 .portfolio
   background-color: $darkWhite
+  +futura(medium)
   ul
     li
       position: relative
+      .image
+        width: 100%
+        background-size: cover
+        background-position: center center
+        .play
+          width: 60px
+          height: 60px
+          color: $white
+          border: 3px solid $white
+          border-radius: 50%
+          i
+            font-size: 22px
       img
         width: 100%
-      div
+      .info
         position: absolute
         width: 96.1%
         height: auto
@@ -87,13 +99,21 @@ header
               font-size: 12px
 
 .illustration
+  +futura(medium)
   background-color: $lightWhite
   .row
-    div
+    .imageIllustration
+      display: inline-block
+      width: 100%
+      height: 100%
+      background-size: cover
+      background-position: center center
+      margin-bottom: -5px
+    div.columns
       border-radius: 5px
       &.large-6
         position: relative
-        div
+        .infoIllustration
           position: absolute
           bottom: 0
           padding: 10px
@@ -116,8 +136,10 @@ header
           font-size: 12px
 
 .about
+  +futura(medium)
   background-color: $darkWhite
   p
+    color: $otherLightGrey
     text-align: center
     font-size: 16px
     line-height: 40px
@@ -138,12 +160,19 @@ header
       border: 10px solid $blue
     &.available
       border: 10px solid $lightBlack
-    p
-      font-size: 56px
-      line-height: 20px
-      span
-        font-size: 16px
+    div
+      width: 100%
+      height: 100%
+      p
+        color: $otherLightGrey
+        font-size: 56px
+        line-height: 20px
+        margin: 0
+        span
+          color: $lightGrey
+          font-size: 16px
 .workExperience
+  +futura(medium)
   background-color: $lightWhite
   .row
     padding:
@@ -166,6 +195,8 @@ header
           list-style: none
           padding: 0
           margin: 0
+          li:last-child
+            margin-top: 15px
         .linkedin
           font-size: 16px
           text-transform: uppercase
@@ -237,6 +268,7 @@ header
                   color: $lightGrey
 
 .contact
+  +futura(medium)
   min-height: 0
   background-color: $darkWhite
   p
@@ -248,11 +280,12 @@ header
     line-height: 30px
   form
     margin-bottom: 80px
+    .prefix
+      font-size: 20px
     span
       border-right: none
       color: $red
       background-color: $white
-
     input
       border-left: none
       box-shadow: none
@@ -261,9 +294,19 @@ header
         border-left: none
         box-shadow: none
         background-color: $white
-        .prefix
+    .text
+      .prefix
+        border-right: none
+        background-color: $white
+      textarea
+        border-left: none
+        background-color: $white
+        box-shadow: none
+        &:focus
           border: 1px solid $red
-          border-right: none
+          border-left: none
+          box-shadow: none
+          background-color: $white
     .large-3
       text-align: right
       button
@@ -289,6 +332,7 @@ header
         margin-right: 20px
 
 footer
+  +futura(medium)
   width: 100%
   background-color: $black
   color: $white
