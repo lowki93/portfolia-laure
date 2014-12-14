@@ -1,0 +1,3 @@
+PortfolioLaureBundle_workexperience:
+    resource: "@PortfolioLaureBundle/Resources/config/routing/workexperience.yml"
+    prefix:   /workexperience

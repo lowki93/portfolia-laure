@@ -1,45 +1,49 @@
-<div class="row">
-    <div class="medium-6 column">
-        <h3>Work experience</h3>
-        <p>
-            Specialties : Brand Identity, Print and Packaging Design, Editorial Design, Illustration,
-            Web Design  Motion Design, Typography, Linocut.
-        </p>
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>workExperience list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Company</th>
+                <th>Type</th>
+                <th>Yourjob</th>
+                <th>Information</th>
+                <th>Year</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('workexperience_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.company }}</td>
+                <td>{{ entity.type }}</td>
+                <td>{{ entity.yourJob }}</td>
+                <td>{{ entity.information }}</td>
+                <td>{{ entity.year }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('workexperience_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('workexperience_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
         <ul>
-            <li> <a href="#" class="linkedin">View on linkedin</a></li>
-            <li><a href="#" class="pdfCv"><i class="fa fa-download"></i> pdf version</a></li>
-        </ul>
-    </div>
-    <div class="medium-6 column">
-        <div class="date first"><span>2014</span></div>
-        <div class="experience">
-            <div class="rectangle"></div>
-            <div class="experienceLogo"><img src="{{ asset('uploads/brainsonic.jpg') }}" alt="braisonic_logo" /></div>
-            <div class="experienceContent">
-                <h3>Brainsonic (Apprenticeship)</h3>
-                <p class="experienceType">Web and Graphic Designer</p>
-                <p class="experienceDate">September 2013 – Today (1 year) Paris III, France</p>
-            </div>
-        </div>
-        <div class="experience last">
-            <div class="rectangle"></div>
-            <div class="experienceLogo"><img src="{{ asset('uploads/brainsonic.jpg') }}" alt="braisonic_logo" /></div>
-            <div class="experienceContent">
-                <h3>Brainsonic (Apprenticeship)</h3>
-                <p class="experienceType">Web and Graphic Designer</p>
-                <p class="experienceDate">September 2013 – Today (1 year) Paris III, France</p>
-            </div>
-        </div>
-        <div class="date"><span>2012</span></div>
-        <div class="experience last">
-            <div class="rectangle"></div>
-            <div class="experienceLogo"><img src="{{ asset('uploads/brainsonic.jpg') }}" alt="braisonic_logo" /></div>
-            <div class="experienceContent">
-                <h3>Brainsonic (Apprenticeship)</h3>
-                <p class="experienceType">Web and Graphic Designer</p>
-                <p class="experienceDate">September 2013 – Today (1 year) Paris III, France</p>
-            </div>
-        </div>
-        <div class="date last"><span>2011</span></div>
-    </div>
-</div>
+        <li>
+            <a href="{{ path('workexperience_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

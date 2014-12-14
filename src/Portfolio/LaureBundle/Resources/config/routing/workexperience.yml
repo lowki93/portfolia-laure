@@ -1,0 +1,30 @@
+workexperience:
+    path:     /
+    defaults: { _controller: "PortfolioLaureBundle:workExperience:index" }
+
+workexperience_show:
+    path:     /{id}/show
+    defaults: { _controller: "PortfolioLaureBundle:workExperience:show" }
+
+workexperience_new:
+    path:     /new
+    defaults: { _controller: "PortfolioLaureBundle:workExperience:new" }
+
+workexperience_create:
+    path:     /create
+    defaults: { _controller: "PortfolioLaureBundle:workExperience:create" }
+    requirements: { _method: post }
+
+workexperience_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PortfolioLaureBundle:workExperience:edit" }
+
+workexperience_update:
+    path:     /{id}/update
+    defaults: { _controller: "PortfolioLaureBundle:workExperience:update" }
+    requirements: { _method: post|put }
+
+workexperience_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PortfolioLaureBundle:workExperience:delete" }
+    requirements: { _method: post|delete }
