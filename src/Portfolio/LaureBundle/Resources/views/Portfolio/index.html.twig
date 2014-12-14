@@ -1,6 +1,6 @@
 <div class="row">
     <h2>PORTFOLIO</h2>
-    <ul class="small-block-grid-2">
+    <ul class="small-block-grid-2 cover-close">
         {% for i in 1..4 %}
             <li {% if i is divisibleby(2) %}class="video"{% endif %}>
                 {% if i is divisibleby(2) %}
@@ -29,7 +29,5 @@
             </li>
         {% endfor %}
     </ul>
-    <div class="more medium-12 column">
-        <a href="#" class="more-button">VIEW MORE PROJECTS</a>
-    </div>
+    {% include 'PortfolioLaureBundle:Partial:more.button.html.twig' %}
 </div>

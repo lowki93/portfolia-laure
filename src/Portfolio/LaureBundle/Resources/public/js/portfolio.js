@@ -11,6 +11,11 @@ $(document).ready(function($){
         return false;
     });
 
+    // for more button
+    $('.open-cover').click( function() {
+        $(this).parent("div").parent("div").find(".cover-close").height('auto');
+    });
+
     // For Portfolio
     $('.portfolio ul li').height($('.portfolio ul li').width() * 0.96);
     $.each( $('.portfolio ul li.video'), function(){
@@ -18,6 +23,7 @@ $(document).ready(function($){
     });
 
     // For Illustration
+    $('.illustration .cover-close').height($('.illustration .large-6').width() + 20);
     $('.illustration .large-6').height($('.illustration .large-6').width())
     $('.illustration .secondIllustration').height($('.illustration .large-6').height());
     $('.illustration .secondIllustration .imageIllustration').height($('.illustration .secondIllustration').height() - $('.illustration .secondIllustration .information').height() - 20 );
