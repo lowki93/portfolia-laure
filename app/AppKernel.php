@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new Roukmoute\DoctrinePrefixBundle\RoukmouteDoctrinePrefixBundle(),
             new Portfolio\LaureBundle\PortfolioLaureBundle(),
+            new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
