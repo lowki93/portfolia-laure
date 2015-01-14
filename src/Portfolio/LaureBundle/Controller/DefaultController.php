@@ -11,6 +11,11 @@ class DefaultController extends Controller
         return $this->render('PortfolioLaureBundle:Default:index.html.twig');
     }
 
+    public function adminAction()
+    {
+        return $this->render('PortfolioLaureBundle:Admin:index.html.twig');
+    }
+
     public function contactAction()
     {
         return $this->render('PortfolioLaureBundle:Default:contact.html.twig');

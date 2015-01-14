@@ -1,3 +1,7 @@
+ptf_admin_index:
+    pattern: /
+    defaults:  { _controller: PortfolioLaureBundle:Default:admin }
+
 PortfolioLaureBundle_workexperience:
     resource: "@PortfolioLaureBundle/Resources/config/routing/workexperience.yml"
     prefix:   /workexperience

@@ -44,7 +44,7 @@ class workExperienceController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('workexperience_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('workexperience_edit', array('id' => $entity->getId())));
         }
 
         return $this->render('PortfolioLaureBundle:workExperience:new.html.twig', array(
@@ -84,28 +84,6 @@ class workExperienceController extends Controller
         return $this->render('PortfolioLaureBundle:workExperience:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
-        ));
-    }
-
-    /**
-     * Finds and displays a workExperience entity.
-     *
-     */
-    public function showAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('PortfolioLaureBundle:workExperience')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find workExperience entity.');
-        }
-
-        $deleteForm = $this->createDeleteForm($id);
-
-        return $this->render('PortfolioLaureBundle:workExperience:show.html.twig', array(
-            'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
         ));
     }
 

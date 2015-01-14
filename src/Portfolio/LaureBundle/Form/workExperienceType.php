@@ -14,12 +14,21 @@ class workExperienceType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $choiceYear = null;
+
+        for ($i = 0; $i <= 6; $i++) {
+            $date = date("Y", strtotime("-".$i." year"));
+            $dateArray[$date] = $date;
+            $choiceYear["choices"] = $dateArray;
+        }
+
         $builder
             ->add('company')
             ->add('type')
             ->add('yourJob')
             ->add('information')
-            ->add('year')
+            ->add('year','choice',$choiceYear)
+            ->add('file')
         ;
     }
     

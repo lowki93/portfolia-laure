@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Laure Portfolio{% endblock %}</title>
+    {% stylesheets
+        'bundles/portfoliolaure/css/foundation/normalize.css'
+        'bundles/portfoliolaure/css/foundation/foundation.css'
+        filter="cssrewrite" %}
+        <link href="{{ asset_url }}" type="text/css" rel="stylesheet"/>
+    {% endstylesheets %}
+    {% block stylesheets %}
+        {% stylesheets
+            'bundles/portfoliolaure/css/admin.sass'
+            filter="sass, cssrewrite" output='css/admin.css' %}
+            <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
+        {% endstylesheets %}
+    {% endblock %}
+</head>
+<body>
+    <div>
+        <nav class="top-bar" data-topbar>
+            <ul class="title-area">
+                <li class="name">
+                    <h1><a href="{{ path('ptf_admin_index') }}">Administration</a></h1>
+                </li>
+                <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+                <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+            </ul>
+
+            <section class="top-bar-section">
+                <!-- Right Nav Section -->
+                <ul class="right">
+                    <li class="active"><a href="{{ path('fos_user_security_logout')}}">Déconnexion</a></li>
+                </ul>
+
+                <!-- Left Nav Section -->
+                <ul class="left">
+                    <li class="has-dropdown not-click">
+                        <a href="{{ path('workexperience') }}">workexperience</a>
+                        <ul class="dropdown">
+                            <li><a href="{{ path('workexperience_new') }}">New workexperience</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown not-click">
+                    {#    <a href="#">Catégories</a>
+                        <ul class="dropdown">
+                            <li><a href="#">Nouvelle catégorie</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Comptes client</a>
+                    </li>
+                    <li class="has-dropdown not-click">
+                        <a href="#">Commandes</a>
+                        <ul class="dropdown">
+                            <li><a href="#">Commandes à valider</a></li>
+                            <li><a href="#">Commandes à expédier</a></li>
+                            <li><a href="#">Commandes expédiées</a></li>
+                        </ul>
+                    </li>#}
+                </ul>
+            </section>
+        </nav>
+    </div>
+    <div class="large-12 columns admin-panel">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
