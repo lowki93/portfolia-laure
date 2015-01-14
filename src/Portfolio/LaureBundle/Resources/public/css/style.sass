@@ -1,9 +1,11 @@
 @import variable
 
+$headerHeigth: 60px
+
 header
   width: 100%
   position: fixed
-  height: 80px
+  height: $headerHeigth
   background-color: $black
   color: $white
   z-index: 999
@@ -17,7 +19,7 @@ header
     li
       width: auto
       display: inline-block
-      line-height: 80px
+      line-height: $headerHeigth
       cursor: pointer
       a
         +futura(medium)
@@ -25,7 +27,7 @@ header
     &.logo
       li
         a
-          font-size: 28px
+          font-size: 24px
     &.nav
       li
         padding:
@@ -57,6 +59,7 @@ header
       bottom: 40px
   p
     margin:
+      top: 40px
       bottom: 80px
 
 .portfolio
@@ -93,8 +96,7 @@ header
           background-color: $white
           p
             color: $darkGrey
-            &:first-child
-              font-size: 16px
+            font-size: 16px
             &:last-child
               font-size: 12px
 
@@ -157,9 +159,10 @@ header
       top: 20px
     border-radius: 50%
     display: inline-block
-    width: 22%
-    margin:
-      right: 2%
+    width: 16%
+    //width: 22%
+    //margin:
+    //  right: 2%
     &.cheerful
       border: 10px solid $red
       margin:
@@ -175,7 +178,7 @@ header
       height: 100%
       p
         color: $otherLightGrey
-        font-size: 56px
+        font-size: 40px
         line-height: 20px
         margin: 0
         span
@@ -201,6 +204,8 @@ header
           font-size: 16px
           color: $darkBlack
           line-height: 30px
+          margin:
+            bottom: 40px
         ul
           list-style: none
           padding: 0
@@ -286,7 +291,6 @@ header
     color: $red
     font-size: 16px
     text-transform: uppercase
-    margin-top: 30px
     line-height: 30px
   form
     margin-bottom: 80px
@@ -330,16 +334,17 @@ header
     background-position: center center
     text-align: center
     padding:
-      top: 55px
-      bottom: 50px
+      top: 30px
+      bottom: 20px
     h2
       margin:
-        bottom: 45px
+        bottom: 10px
     ul
       list-style: none
       li
         display: inline-block
         margin-right: 20px
+        width: 55px
 
 footer
   +futura(medium)

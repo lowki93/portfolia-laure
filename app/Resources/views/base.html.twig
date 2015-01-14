@@ -10,11 +10,11 @@
             <link href="{{ asset_url }}" type="text/css" rel="stylesheet"/>
         {% endstylesheets %}
         {% block stylesheets %}
-                {% stylesheets
-                    'bundles/portfoliolaure/css/style.sass'
-                    filter="cssrewrite,sass" output='css/style.css' %}
-                    <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
-                {% endstylesheets %}
+            {% stylesheets
+                'bundles/portfoliolaure/css/style.sass'
+                filter="sass, cssrewrite" output='css/style.css' %}
+                <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
+            {% endstylesheets %}
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
@@ -24,10 +24,11 @@
                 <ul class="logo medium-3 columns">
                     <li><a href="#homepage">LAURE M. JOY</a></li>
                 </ul>
-                <ul class="nav medium-5 columns">
+                <ul class="nav medium-7 columns">
                     <li><a href="#portfolio">PORTFOLIO</a></li>
                     <li><a href="#illustration">ILLUSTRATIONS</a></li>
                     <li><a href="#about">ABOUT</a></li>
+                    <li><a href="#workExperience">WORK EXPERIENCE</a></li>
                     <li><a href="#contact">CONTACT</a></li>
                 </ul>
             </div>
