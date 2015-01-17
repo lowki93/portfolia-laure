@@ -3,6 +3,7 @@
 namespace Portfolio\LaureBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -14,8 +15,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class workExperience
 {
-    private $filenameForRemove;
 
+    use ORMBehaviors\Timestampable\Timestampable;
     /**
      * @var integer
      *
@@ -35,7 +36,7 @@ class workExperience
     /**
      * @var string
      *
-     * @ORM\Column(name="type", type="string", length=255)
+     * @ORM\Column(name="type", type="string", length=255, nullable=true)
      */
     private $type;
 
@@ -63,7 +64,7 @@ class workExperience
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    public $path;
+    private $path;
 
     /**
      * @return mixed
@@ -105,7 +106,7 @@ class workExperience
     public function preUpload()
     {
         if (null !== $this->file) {
-            $this->path = $this->company.'.'.$this->file->guessExtension();
+            $this->path = preg_replace("/[^a-zA-Z0-9]+/", "", $this->company).'.'.$this->file->guessExtension();
         }
     }
 

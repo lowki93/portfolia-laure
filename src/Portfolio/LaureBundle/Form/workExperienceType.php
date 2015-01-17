@@ -24,7 +24,7 @@ class workExperienceType extends AbstractType
 
         $builder
             ->add('company')
-            ->add('type')
+            ->add('type', 'text', array('required' => false))
             ->add('yourJob')
             ->add('information')
             ->add('year','choice',$choiceYear)

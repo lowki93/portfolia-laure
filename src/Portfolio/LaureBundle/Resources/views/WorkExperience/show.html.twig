@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="medium-6 column">
+        <h3>Work experience</h3>
+        <p>
+            Specialties : Brand Identity, Print and Packaging Design, Editorial Design, Illustration,
+            Web Design  Motion Design, Typography, Linocut.
+        </p>
+        <ul>
+            <li> <a href="#" class="linkedin">View on linkedin</a></li>
+            <li><a href="#" class="pdfCv"><i class="fa fa-download"></i> pdf version</a></li>
+        </ul>
+    </div>
+    <div class="medium-6 column">
+        <div class="date first"><span>{{ "now"|date("Y") }}</span></div>
+        {% for date,experiences in workExperiences %}
+            {% for experience in experiences %}
+                <div class="experience{% if loop.last %} last{% endif %}">
+                    <div class="rectangle"></div>
+                    <div class="experienceLogo">
+                        <img src="/uploads/workexperience/{{ experience.path }}" alt="{{ experience.company }}" />
+                    </div>
+                    <div class="experienceContent">
+                        <h3>
+                            {{ experience.company | capitalize }}
+                            {% if experience.type is not empty %}
+                                 ({{ experience.type }})
+                            {% endif %}
+                        </h3>
+                        <p class="experienceType">{{ experience.yourJob }}</p>
+                        <p class="experienceDate">{{ experience.information }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="date{% if loop.last %} last{% endif %}"><span>{{ date }}</span></div>
+        {% endfor %}
+    </div>
+</div>

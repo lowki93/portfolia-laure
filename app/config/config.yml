@@ -1,6 +1,7 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
+    - { resource: ../../vendor/knplabs/doctrine-behaviors/config/orm-services.yml }
 
 framework:
     #esi:             ~
@@ -31,6 +32,7 @@ assetic:
     debug:          "%kernel.debug%"
     use_controller: false
     bundles:        [PortfolioLaureBundle]
+    sass: %assetic.sass.bin%
     #java: /usr/bin/java
     filters:
         cssrewrite: ~

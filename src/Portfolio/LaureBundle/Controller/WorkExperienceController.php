@@ -29,6 +29,29 @@ class workExperienceController extends Controller
             'entities' => $entities,
         ));
     }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function showAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $workExperiences = $em->getRepository('PortfolioLaureBundle:workExperience')->findBy(
+            array(),
+            array('createdAt' => 'DESC')
+        );
+
+        $arrayDate = [];
+        foreach($workExperiences as $experience){
+            $arrayDate[$experience->getYear()][] = $experience;
+        }
+
+        return $this->render('PortfolioLaureBundle:WorkExperience:show.html.twig', array(
+            'workExperiences' => $arrayDate
+        ));
+    }
+
     /**
      * Creates a new workExperience entity.
      *
@@ -44,7 +67,7 @@ class workExperienceController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('workexperience_edit', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('workexperience'));
         }
 
         return $this->render('PortfolioLaureBundle:workExperience:new.html.twig', array(
@@ -148,9 +171,10 @@ class workExperienceController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
+            $entity->preUpload();
             $em->flush();
 
-            return $this->redirect($this->generateUrl('workexperience_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('workexperience'));
         }
 
         return $this->render('PortfolioLaureBundle:workExperience:edit.html.twig', array(

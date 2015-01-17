@@ -24,8 +24,11 @@
                 <td>{{ entity.information }}</td>
                 <td>{{ entity.year }}</td>
                 <td>
-                    <img src="/uploads/workexperience/{{ entity.path }}"
-                         alt="{{ entity.company }}"
+                    <ul class="small-block-grid-6 medium-block-grid-6">
+                        <li>
+                            <img src="/uploads/workexperience/{{ entity.path }}" alt="{{ entity.company }}" />
+                        </li>
+                    </ul>
                 </td>
                 <td>
                     <a href="{{ path('workexperience_edit', { 'id': entity.id }) }}">edit</a>
