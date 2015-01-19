@@ -31,7 +31,7 @@ twig:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [PortfolioLaureBundle]
+    bundles:        [PortfolioLaureBundle,FOSUserBundle]
     sass: %assetic.sass.bin%
     #java: /usr/bin/java
     filters:
