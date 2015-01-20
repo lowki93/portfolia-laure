@@ -12,7 +12,7 @@ use Portfolio\LaureBundle\Form\workExperienceType;
  * workExperience controller.
  *
  */
-class workExperienceController extends Controller
+class WorkExperienceController extends Controller
 {
 
     /**
