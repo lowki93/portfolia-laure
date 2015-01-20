@@ -13,7 +13,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\HasLifecycleCallbacks
  * @ORM\Entity
  */
-class workExperience
+class WorkExperience
 {
 
     use ORMBehaviors\Timestampable\Timestampable;

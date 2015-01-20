@@ -5,8 +5,8 @@ namespace Portfolio\LaureBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use Portfolio\LaureBundle\Entity\workExperience;
-use Portfolio\LaureBundle\Form\workExperienceType;
+use Portfolio\LaureBundle\Entity\WorkExperience;
+use Portfolio\LaureBundle\Form\WorkExperienceType;
 
 /**
  * workExperience controller.
@@ -23,9 +23,9 @@ class WorkExperienceController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('PortfolioLaureBundle:workExperience')->findAll();
+        $entities = $em->getRepository('PortfolioLaureBundle:WorkExperience')->findAll();
 
-        return $this->render('PortfolioLaureBundle:workExperience:index.html.twig', array(
+        return $this->render('PortfolioLaureBundle:WorkExperience:index.html.twig', array(
             'entities' => $entities,
         ));
     }
@@ -37,7 +37,7 @@ class WorkExperienceController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $workExperiences = $em->getRepository('PortfolioLaureBundle:workExperience')->findBy(
+        $workExperiences = $em->getRepository('PortfolioLaureBundle:WorkExperience')->findBy(
             array(),
             array('createdAt' => 'DESC')
         );
@@ -58,7 +58,7 @@ class WorkExperienceController extends Controller
      */
     public function createAction(Request $request)
     {
-        $entity = new workExperience();
+        $entity = new WorkExperience();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
@@ -70,7 +70,7 @@ class WorkExperienceController extends Controller
             return $this->redirect($this->generateUrl('workexperience'));
         }
 
-        return $this->render('PortfolioLaureBundle:workExperience:new.html.twig', array(
+        return $this->render('PortfolioLaureBundle:WorkExperience:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
@@ -85,7 +85,7 @@ class WorkExperienceController extends Controller
      */
     private function createCreateForm(workExperience $entity)
     {
-        $form = $this->createForm(new workExperienceType(), $entity, array(
+        $form = $this->createForm(new WorkExperienceType(), $entity, array(
             'action' => $this->generateUrl('workexperience_create'),
             'method' => 'POST',
         ));
@@ -101,10 +101,10 @@ class WorkExperienceController extends Controller
      */
     public function newAction()
     {
-        $entity = new workExperience();
+        $entity = new WorkExperience();
         $form   = $this->createCreateForm($entity);
 
-        return $this->render('PortfolioLaureBundle:workExperience:new.html.twig', array(
+        return $this->render('PortfolioLaureBundle:WorkExperience:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
@@ -118,7 +118,7 @@ class WorkExperienceController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('PortfolioLaureBundle:workExperience')->find($id);
+        $entity = $em->getRepository('PortfolioLaureBundle:WorkExperience')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find workExperience entity.');
@@ -127,7 +127,7 @@ class WorkExperienceController extends Controller
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('PortfolioLaureBundle:workExperience:edit.html.twig', array(
+        return $this->render('PortfolioLaureBundle:WorkExperience:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -143,7 +143,7 @@ class WorkExperienceController extends Controller
     */
     private function createEditForm(workExperience $entity)
     {
-        $form = $this->createForm(new workExperienceType(), $entity, array(
+        $form = $this->createForm(new WorkExperienceType(), $entity, array(
             'action' => $this->generateUrl('workexperience_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
@@ -160,7 +160,7 @@ class WorkExperienceController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('PortfolioLaureBundle:workExperience')->find($id);
+        $entity = $em->getRepository('PortfolioLaureBundle:WorkExperience')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find workExperience entity.');
@@ -177,7 +177,7 @@ class WorkExperienceController extends Controller
             return $this->redirect($this->generateUrl('workexperience'));
         }
 
-        return $this->render('PortfolioLaureBundle:workExperience:edit.html.twig', array(
+        return $this->render('PortfolioLaureBundle:WorkExperience:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -194,7 +194,7 @@ class WorkExperienceController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('PortfolioLaureBundle:workExperience')->find($id);
+            $entity = $em->getRepository('PortfolioLaureBundle:WorkExperience')->find($id);
 
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find workExperience entity.');
@@ -204,7 +204,7 @@ class WorkExperienceController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('workexperience'));
+        return $this->redirect($this->generateUrl('Workexperience'));
     }
 
     /**
