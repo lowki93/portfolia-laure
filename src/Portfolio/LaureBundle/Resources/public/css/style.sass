@@ -154,36 +154,38 @@ header
     font-size: 16px
     line-height: 40px
     margin-bottom: 40px
-  div.circle
-    padding:
-      top: 20px
-    border-radius: 50%
-    display: inline-block
-    width: 16%
-    //width: 22%
-    //margin:
-    //  right: 2%
-    &.cheerful
-      border: 10px solid $red
-      margin:
-        left: 10px
-    &.efficient
-      border: 10px solid $green
-    &.creative
-      border: 10px solid $blue
-    &.available
-      border: 10px solid $lightBlack
-    div
-      width: 100%
-      height: 100%
-      p
-        color: $otherLightGrey
-        font-size: 40px
-        line-height: 20px
-        margin: 0
-        span
-          color: $lightGrey
-          font-size: 16px
+  .circle-content
+    text-align: center
+    div.circle
+      padding:
+        top: 20px
+      border-radius: 50%
+      display: inline-block
+      width: 16%
+      //width: 22%
+      //margin:
+      //  right: 2%
+      &.cheerful
+        border: 10px solid $red
+        margin:
+          left: 10px
+      &.efficient
+        border: 10px solid $green
+      &.creative
+        border: 10px solid $blue
+      &.available
+        border: 10px solid $lightBlack
+      div
+        width: 100%
+        height: 100%
+        p
+          color: $otherLightGrey
+          font-size: 40px
+          line-height: 20px
+          margin: 0
+          span
+            color: $lightGrey
+            font-size: 16px
 .workExperience
   +futura(medium)
   background-color: $lightWhite

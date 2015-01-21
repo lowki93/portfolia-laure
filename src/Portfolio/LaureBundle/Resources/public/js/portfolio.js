@@ -33,7 +33,7 @@ $(document).ready(function($){
     $('.illustration .large-3.last').css("margin-top", $('.illustration .large-6').height() -  ($('.illustration .large-3.end').height() * 2) );
 
     // For About
-    $('.about div.circle').height($('.about div.circle').width());
+    $('.about div.circle').height($('.about div.circle').width() - 20);
     $('.workExperience div.medium-6:first-child').height($('.workExperience div.medium-6:last-child').height());
 
     // For Contact
