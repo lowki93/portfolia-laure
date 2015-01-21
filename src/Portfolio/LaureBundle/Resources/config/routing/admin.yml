@@ -5,3 +5,7 @@ ptf_admin_index:
 PortfolioLaureBundle_workexperience:
     resource: "@PortfolioLaureBundle/Resources/config/routing/workexperience.yml"
     prefix:   /workexperience
+
+PortfolioLaureBundle_workexperienceintro:
+    resource: "@PortfolioLaureBundle/Resources/config/routing/workexperienceintro.yml"
+    prefix:   /workexperienceintro

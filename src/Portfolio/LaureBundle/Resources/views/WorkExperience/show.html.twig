@@ -1,10 +1,9 @@
 <div class="row">
     <div class="medium-6 column">
         <h3>Work experience</h3>
-        <p>
-            Specialties : Brand Identity, Print and Packaging Design, Editorial Design, Illustration,
-            Web Design  Motion Design, Typography, Linocut.
-        </p>
+        {% for oneIntro in intro %}
+            <p>{{ oneIntro.text }}</p>
+        {% endfor %}
         <ul>
             <li> <a href="#" class="linkedin">View on linkedin</a></li>
             <li><a href="#" class="pdfCv"><i class="fa fa-download"></i> pdf version</a></li>

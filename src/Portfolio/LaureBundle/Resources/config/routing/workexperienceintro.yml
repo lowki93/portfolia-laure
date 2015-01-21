@@ -1,0 +1,12 @@
+workexperienceintro:
+    path:     /
+    defaults: { _controller: "PortfolioLaureBundle:WorkExperienceIntro:index" }
+
+workexperienceintro_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PortfolioLaureBundle:WorkExperienceIntro:edit" }
+
+workexperienceintro_update:
+    path:     /{id}/update
+    defaults: { _controller: "PortfolioLaureBundle:WorkExperienceIntro:update" }
+    requirements: { _method: post|put }

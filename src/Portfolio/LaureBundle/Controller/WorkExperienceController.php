@@ -42,13 +42,16 @@ class WorkExperienceController extends Controller
             array('createdAt' => 'DESC')
         );
 
+        $intro = $em->getRepository('PortfolioLaureBundle:WorkExperienceIntro')->findAll();
+
         $arrayDate = [];
         foreach($workExperiences as $experience){
             $arrayDate[$experience->getYear()][] = $experience;
         }
 
         return $this->render('PortfolioLaureBundle:WorkExperience:show.html.twig', array(
-            'workExperiences' => $arrayDate
+            'workExperiences' => $arrayDate,
+            'intro' => $intro
         ));
     }
 
