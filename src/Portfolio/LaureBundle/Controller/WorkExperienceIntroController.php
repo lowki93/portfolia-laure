@@ -90,7 +90,7 @@ class WorkExperienceIntroController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('workexperienceintro'));
+            return $this->redirect($this->generateUrl('workexperience'));
         }
 
         return $this->render('PortfolioLaureBundle:WorkExperienceIntro:edit.html.twig', array(

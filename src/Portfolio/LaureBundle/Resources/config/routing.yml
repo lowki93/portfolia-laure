@@ -2,6 +2,10 @@ laure_index:
     path:   /
     defaults:  { _controller: PortfolioLaureBundle:Default:index }
 
+laure_download_cv:
+    path: /download-cv
+    defaults: { _controller: PortfolioLaureBundle:WorkExperienceCV:downloadCV }
+
 PortfolioLaureBundle_admin:
     resource: "@PortfolioLaureBundle/Resources/config/routing/admin.yml"
     prefix:   /admin

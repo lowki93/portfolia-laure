@@ -1,0 +1,25 @@
+<h4>Ton cv</h4>
+<table class="medium-12 columns">
+    <thead>
+        <tr>
+            <th>Path</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>
+                    {% if entity.path %}
+                        <a href="{{ path('laure_download_cv') }}"> download le cv</a>
+                    {% else %}
+                        uploload ton CV
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{{ path('workexperiencecv_edit', { 'id': entity.id }) }}">edit</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

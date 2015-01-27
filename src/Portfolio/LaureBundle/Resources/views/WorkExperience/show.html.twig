@@ -6,11 +6,12 @@
         {% endfor %}
         <ul>
             <li> <a href="#" class="linkedin">View on linkedin</a></li>
-            <li><a href="#" class="pdfCv"><i class="fa fa-download"></i> pdf version</a></li>
+            <li>
+                <a href="{{ path('laure_download_cv') }}" class="pdfCv"><i class="fa fa-download"></i> pdf version</a>
+            </li>
         </ul>
     </div>
     <div class="medium-6 column">
-
         {% for date,experiences in workExperiences %}
             {% if loop.first %}
                 {% if '{{ date }}' != '{{ "now"|date("Y") }}' %}
@@ -20,9 +21,8 @@
             {% for experience in experiences %}
                 <div class="experience{% if loop.last %} last{% endif %}">
                     <div class="rectangle"></div>
-                    <div class="experienceLogo"
-                         style="background-image: url(/uploads/workexperience/{{ experience.path }})">
-                        {#<img src="/uploads/workexperience/{{ experience.path }}" alt="{{ experience.company }}" />#}
+                    <div class="experienceLogo">
+                        <img src="/uploads/workexperience/{{ experience.path }}" alt="{{ experience.company }}" />
                     </div>
                     <div class="experienceContent">
                         <h3>

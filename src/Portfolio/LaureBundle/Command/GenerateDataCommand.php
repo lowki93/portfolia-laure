@@ -2,6 +2,7 @@
 
 namespace Portfolio\LaureBundle\Command;
 
+use Portfolio\LaureBundle\Entity\WorkExperienceCV;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -20,6 +21,7 @@ class GenerateDataCommand extends ContainerAwareCommand
 
         $em = $this->getContainer()->get("doctrine")->getManager();
         $workExperienceIntro = $em->getRepository('PortfolioLaureBundle:WorkExperienceIntro')->findAll();
+        $workExperienceCV = $em->getRepository('PortfolioLaureBundle:WorkExperienceCV')->findAll();
         $logger->info("start");
 
         if( $workExperienceIntro == null ) {
@@ -28,6 +30,13 @@ class GenerateDataCommand extends ContainerAwareCommand
             $em->persist($workExperienceIntro);
             $em->flush();
             $logger->info("create intro for workExperience");
+        }
+
+        if( $workExperienceCV == null ) {
+            $workExperienceCV = new WorkExperienceCV();
+            $em->persist($workExperienceCV);
+            $em->flush();
+            $logger->info("create cv for workExperince");
         }
 
         $logger->info("end");

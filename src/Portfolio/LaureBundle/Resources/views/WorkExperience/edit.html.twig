@@ -1,12 +1,8 @@
 {% extends '::baseAdmin.html.twig' %}
 
 {% block content %}
-    <h1>workExperience edit</h1>
-
+    <h4>Edition de : {{ entity.company }}</h4>
     {{ form(edit_form) }}
-
     <a href="{{ path('workexperience') }}">Back to the list</a>
-
     {{ form(delete_form) }}
-
 {% endblock %}
