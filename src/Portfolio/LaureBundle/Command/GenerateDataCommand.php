@@ -17,29 +17,36 @@ class GenerateDataCommand extends ContainerAwareCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $logger = $this->getContainer()->get("logger");
-
         $em = $this->getContainer()->get("doctrine")->getManager();
         $workExperienceIntro = $em->getRepository('PortfolioLaureBundle:WorkExperienceIntro')->findAll();
         $workExperienceCV = $em->getRepository('PortfolioLaureBundle:WorkExperienceCV')->findAll();
-        $logger->info("start");
+
+        $this->writeConsole($output,"start");
 
         if( $workExperienceIntro == null ) {
             $workExperienceIntro = new WorkExperienceIntro();
             $workExperienceIntro->setText("Entre ton introduction");
             $em->persist($workExperienceIntro);
             $em->flush();
-            $logger->info("create intro for workExperience");
+            $this->writeConsole($output,"create intro for workexperience");
         }
 
         if( $workExperienceCV == null ) {
             $workExperienceCV = new WorkExperienceCV();
             $em->persist($workExperienceCV);
             $em->flush();
-            $logger->info("create cv for workExperince");
+            $this->writeConsole($output,"create cv for workExperince");
         }
 
-        $logger->info("end");
+        $this->writeConsole($output,"end");
 
+    }
+
+    /**
+     * @param $string
+     */
+    public function writeConsole($output,$string)
+    {
+        $output->writeln("<fg=green>[".date('j/m/y G:i:s')."] app.INFO:</fg=green> ".$string);
     }
 }
