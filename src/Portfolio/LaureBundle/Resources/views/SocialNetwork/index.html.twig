@@ -1,0 +1,25 @@
+{% extends '::baseAdmin.html.twig' %}
+
+{% block content %}
+    <h4>Liste des réseaux sociaux</h4>
+    <table class="medium-12 columns">
+        <thead>
+            <tr>
+                <th>Socialnetwork</th>
+                <th>Url</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>{{ entity.socialNetwork }}</td>
+                <td>{{ entity.url }}</td>
+                <td>
+                    <a href="{{ path('socialnetwork_edit', { 'id': entity.id }) }}">edit</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

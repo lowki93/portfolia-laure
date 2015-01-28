@@ -48,22 +48,26 @@
         <h2>FOLLOW ME</h2>
         <ul>
             <li>
-                <a href="#">
+                <a target="_blank" href="{{ render(controller('PortfolioLaureBundle:SocialNetwork:getSocialNetwork',
+                { 'socialNetworkString': 'linkedin' })) }}">
                     <img src="{{ asset('bundles/portfoliolaure/images/follower/LinkedIn.png') }}" atl="linkedin_logo"/>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a target="_blank" href="{{ render(controller('PortfolioLaureBundle:SocialNetwork:getSocialNetwork',
+                { 'socialNetworkString': 'vimeo' })) }}">
                     <img src="{{ asset('bundles/portfoliolaure/images/follower/Vimeo.png') }}" atl="vimeo_logo"/>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a target="_blank" href="{{ render(controller('PortfolioLaureBundle:SocialNetwork:getSocialNetwork',
+                { 'socialNetworkString': 'twitter' })) }}">
                     <img src="{{ asset('bundles/portfoliolaure/images/follower/Twitter.png') }}" atl="twitter_logo"/>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a target="_blank" href="{{ render(controller('PortfolioLaureBundle:SocialNetwork:getSocialNetwork',
+                { 'socialNetworkString': 'pinterest' })) }}">
                     <img src="{{ asset('bundles/portfoliolaure/images/follower/Pinterest.png') }}"
                          atl="pinterest_logo"/>
                 </a>

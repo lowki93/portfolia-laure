@@ -13,3 +13,7 @@ PortfolioLaureBundle_workexperienceintro:
 PortfolioLaureBundle_workexperiencecv:
     resource: "@PortfolioLaureBundle/Resources/config/routing/workexperiencecv.yml"
     prefix:   /workexperiencecv
+
+PortfolioLaureBundle_socialnetwork:
+    resource: "@PortfolioLaureBundle/Resources/config/routing/socialnetwork.yml"
+    prefix:   /socialnetwork

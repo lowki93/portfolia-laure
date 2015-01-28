@@ -2,6 +2,7 @@
 
 namespace Portfolio\LaureBundle\Command;
 
+use Portfolio\LaureBundle\Entity\SocialNetwork;
 use Portfolio\LaureBundle\Entity\WorkExperienceCV;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
@@ -20,6 +21,7 @@ class GenerateDataCommand extends ContainerAwareCommand
         $em = $this->getContainer()->get("doctrine")->getManager();
         $workExperienceIntro = $em->getRepository('PortfolioLaureBundle:WorkExperienceIntro')->findAll();
         $workExperienceCV = $em->getRepository('PortfolioLaureBundle:WorkExperienceCV')->findAll();
+        $socialNetwork = $em->getRepository('PortfolioLaureBundle:SocialNetwork')->findAll();
 
         $this->writeConsole($output,"start");
 
@@ -36,6 +38,17 @@ class GenerateDataCommand extends ContainerAwareCommand
             $em->persist($workExperienceCV);
             $em->flush();
             $this->writeConsole($output,"create cv for workExperince");
+        }
+
+        if( $socialNetwork == null ) {
+            $socialNetworkArray = ["linkedin", "vimeo", "pinterest", "twitter"];
+            foreach($socialNetworkArray as $social) {
+                $socialNetwork = new SocialNetwork();
+                $socialNetwork->setSocialNetwork($social);
+                $em->persist($socialNetwork);
+                $em->flush();
+                $this->writeConsole($output,"create ".$social." for socialNetwork");
+            }
         }
 
         $this->writeConsole($output,"end");

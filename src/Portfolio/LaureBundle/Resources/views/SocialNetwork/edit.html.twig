@@ -1,0 +1,9 @@
+{% extends '::baseAdmin.html.twig' %}
+
+{% block content %}
+    <h4>Édtion du réseaux social : {{ entity.socialNetwork }}</h4>
+    {{ form(edit_form) }}
+    <a href="{{ path('socialnetwork') }}">
+        Back to the list
+    </a>
+{% endblock %}

@@ -1,0 +1,12 @@
+socialnetwork:
+    path:     /
+    defaults: { _controller: "PortfolioLaureBundle:SocialNetwork:index" }
+
+socialnetwork_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PortfolioLaureBundle:SocialNetwork:edit" }
+
+socialnetwork_update:
+    path:     /{id}/update
+    defaults: { _controller: "PortfolioLaureBundle:SocialNetwork:update" }
+    requirements: { _method: post|put }

@@ -5,7 +5,14 @@
             <p>{{ oneIntro.text }}</p>
         {% endfor %}
         <ul>
-            <li> <a href="#" class="linkedin">View on linkedin</a></li>
+            <li>
+                <a target="_blank"
+                   href="{{ render(controller('PortfolioLaureBundle:SocialNetwork:getSocialNetwork',
+                    { 'socialNetworkString': 'linkedin' })) }}"
+                   class="linkedin">
+                    View on linkedin
+                </a>
+            </li>
             <li>
                 <a href="{{ path('laure_download_cv') }}" class="pdfCv"><i class="fa fa-download"></i> pdf version</a>
             </li>
