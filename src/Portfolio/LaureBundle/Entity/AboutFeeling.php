@@ -3,6 +3,7 @@
 namespace Portfolio\LaureBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 
 /**
  * AboutFeeling
@@ -12,6 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class AboutFeeling
 {
+    use ORMBehaviors\Timestampable\Timestampable;
     /**
      * @var integer
      *

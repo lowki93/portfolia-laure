@@ -1,16 +1,10 @@
-{% extends '::base.html.twig' %}
+{% extends '::baseAdmin.html.twig' %}
 
-{% block body -%}
-    <h1>AboutFeeling edit</h1>
-
+{% block content -%}
+    <h4>Modification de  {{ entity.name }}</h4>
     {{ form(edit_form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('aboutfeeling') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    <a href="{{ path('aboutintro') }}">
+        Back to the list
+    </a>
+    {{ form(delete_form) }}
 {% endblock %}

@@ -2,10 +2,6 @@ aboutfeeling:
     path:     /
     defaults: { _controller: "PortfolioLaureBundle:AboutFeeling:index" }
 
-aboutfeeling_show:
-    path:     /{id}/show
-    defaults: { _controller: "PortfolioLaureBundle:AboutFeeling:show" }
-
 aboutfeeling_new:
     path:     /new
     defaults: { _controller: "PortfolioLaureBundle:AboutFeeling:new" }

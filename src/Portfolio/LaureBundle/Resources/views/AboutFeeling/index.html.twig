@@ -1,45 +1,27 @@
-{% extends '::base.html.twig' %}
-
-{% block body -%}
-    <h1>AboutFeeling list</h1>
-
-    <table class="records_list">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Percentage</th>
-                <th>Color</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
+<h4>Liste des Feelings</h4>
+<table class="medium-12 columns">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Percentage</th>
+            <th>Color</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('aboutfeeling_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.name }}</td>
                 <td>{{ entity.percentage }}</td>
                 <td>{{ entity.color }}</td>
                 <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('aboutfeeling_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('aboutfeeling_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
+                    <a href="{{ path('aboutfeeling_edit', { 'id': entity.id }) }}">edit</a>
                 </td>
             </tr>
         {% endfor %}
-        </tbody>
-    </table>
+    </tbody>
+</table>
 
-        <ul>
-        <li>
-            <a href="{{ path('aboutfeeling_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
-    {% endblock %}
+<a href="{{ path('aboutfeeling_new') }}">
+    Create a new entry
+</a>

@@ -44,7 +44,7 @@ class AboutFeelingController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('aboutfeeling_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('aboutintro'));
         }
 
         return $this->render('PortfolioLaureBundle:AboutFeeling:new.html.twig', array(
@@ -84,28 +84,6 @@ class AboutFeelingController extends Controller
         return $this->render('PortfolioLaureBundle:AboutFeeling:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
-        ));
-    }
-
-    /**
-     * Finds and displays a AboutFeeling entity.
-     *
-     */
-    public function showAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('PortfolioLaureBundle:AboutFeeling')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find AboutFeeling entity.');
-        }
-
-        $deleteForm = $this->createDeleteForm($id);
-
-        return $this->render('PortfolioLaureBundle:AboutFeeling:show.html.twig', array(
-            'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
         ));
     }
 
@@ -172,7 +150,7 @@ class AboutFeelingController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('aboutfeeling_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('aboutintro'));
         }
 
         return $this->render('PortfolioLaureBundle:AboutFeeling:edit.html.twig', array(
@@ -202,7 +180,7 @@ class AboutFeelingController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('aboutfeeling'));
+        return $this->redirect($this->generateUrl('aboutintro'));
     }
 
     /**

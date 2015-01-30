@@ -1,15 +1,9 @@
-{% extends '::base.html.twig' %}
+{% extends '::baseAdmin.html.twig' %}
 
-{% block body -%}
-    <h1>AboutFeeling creation</h1>
-
+{% block content %}
+    <h4>Créer ton feeling</h4>
     {{ form(form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('aboutfeeling') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+    <a href="{{ path('aboutintro') }}">
+        Back to the list
+    </a>
 {% endblock %}

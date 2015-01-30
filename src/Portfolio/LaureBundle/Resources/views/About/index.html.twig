@@ -1,18 +1,17 @@
 <div class="row">
     <h2>ABOUT</h2>
     <p>{{ aboutIntro.text|nl2br }}</p>
-    <div class="circle-content">
-        <div class="circle cheerful">
-            <div class="flex"><p>100%<br /><span>Cheerful</span></p></div>
+    {% if aboutFeelings is not empty %}
+        <div class="circle-content">
+            {% for aboutFeeling in aboutFeelings %}
+                <div class="circle"
+                     style="border: 10px solid {{ aboutFeeling.color }};">
+                    <div class="flex">
+                        <p>{{ aboutFeeling.percentage }}%<br />
+                            <span>{{ aboutFeeling.name|capitalize }}</span></p>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
-        <div class="circle efficient">
-            <div class="flex"><p>100%<br /><span>Efficient</span></p></div>
-        </div>
-        <div class="circle creative">
-            <div class="flex"><p>100%<br /><span>Creative</span></p></div>
-        </div>
-        <div class="circle available">
-            <div class="flex"><p>100%<br /><span>Available</span></p></div>
-        </div>
-    </div>
+    {% endif %}
 </div>

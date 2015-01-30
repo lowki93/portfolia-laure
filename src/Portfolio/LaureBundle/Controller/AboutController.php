@@ -10,10 +10,15 @@ class AboutController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $aboutIntro = $em->getRepository('PortfolioLaureBundle:AboutIntro')->findAll();
+        $aboutFeelings = $em->getRepository('PortfolioLaureBundle:AboutFeeling')->findBy(
+            array(),
+            array('createdAt' => 'ASC')
+        );
 
         return $this->render('PortfolioLaureBundle:About:index.html.twig',
             array(
-                'aboutIntro' => $aboutIntro[0]
+                'aboutIntro' => $aboutIntro[0],
+                'aboutFeelings' => $aboutFeelings
             ));
     }
 } 
