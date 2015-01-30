@@ -1,0 +1,30 @@
+aboutfeeling:
+    path:     /
+    defaults: { _controller: "PortfolioLaureBundle:AboutFeeling:index" }
+
+aboutfeeling_show:
+    path:     /{id}/show
+    defaults: { _controller: "PortfolioLaureBundle:AboutFeeling:show" }
+
+aboutfeeling_new:
+    path:     /new
+    defaults: { _controller: "PortfolioLaureBundle:AboutFeeling:new" }
+
+aboutfeeling_create:
+    path:     /create
+    defaults: { _controller: "PortfolioLaureBundle:AboutFeeling:create" }
+    requirements: { _method: post }
+
+aboutfeeling_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PortfolioLaureBundle:AboutFeeling:edit" }
+
+aboutfeeling_update:
+    path:     /{id}/update
+    defaults: { _controller: "PortfolioLaureBundle:AboutFeeling:update" }
+    requirements: { _method: post|put }
+
+aboutfeeling_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PortfolioLaureBundle:AboutFeeling:delete" }
+    requirements: { _method: post|delete }

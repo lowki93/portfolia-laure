@@ -21,3 +21,7 @@ PortfolioLaureBundle_socialnetwork:
 PortfolioLaureBundle_aboutintro:
     resource: "@PortfolioLaureBundle/Resources/config/routing/aboutintro.yml"
     prefix:   /aboutintro
+
+PortfolioLaureBundle_aboutfeeling:
+    resource: "@PortfolioLaureBundle/Resources/config/routing/aboutfeeling.yml"
+    prefix:   /aboutfeeling
