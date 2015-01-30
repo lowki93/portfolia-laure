@@ -1,0 +1,11 @@
+{% extends '::baseAdmin.html.twig' %}
+
+{% block content %}
+    <h4>Modifie ton introduction</h4>
+
+    {{ form(edit_form) }}
+
+    <a href="{{ path('aboutintro') }}">
+        Back to the list
+    </a>
+{% endblock %}

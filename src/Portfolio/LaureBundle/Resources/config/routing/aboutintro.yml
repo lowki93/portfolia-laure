@@ -1,0 +1,30 @@
+aboutintro:
+    path:     /
+    defaults: { _controller: "PortfolioLaureBundle:AboutIntro:index" }
+
+aboutintro_show:
+    path:     /{id}/show
+    defaults: { _controller: "PortfolioLaureBundle:AboutIntro:show" }
+
+aboutintro_new:
+    path:     /new
+    defaults: { _controller: "PortfolioLaureBundle:AboutIntro:new" }
+
+aboutintro_create:
+    path:     /create
+    defaults: { _controller: "PortfolioLaureBundle:AboutIntro:create" }
+    requirements: { _method: post }
+
+aboutintro_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PortfolioLaureBundle:AboutIntro:edit" }
+
+aboutintro_update:
+    path:     /{id}/update
+    defaults: { _controller: "PortfolioLaureBundle:AboutIntro:update" }
+    requirements: { _method: post|put }
+
+aboutintro_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PortfolioLaureBundle:AboutIntro:delete" }
+    requirements: { _method: post|delete }

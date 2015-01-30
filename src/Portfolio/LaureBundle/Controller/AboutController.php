@@ -8,6 +8,12 @@ class AboutController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('PortfolioLaureBundle:About:index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $aboutIntro = $em->getRepository('PortfolioLaureBundle:AboutIntro')->findAll();
+
+        return $this->render('PortfolioLaureBundle:About:index.html.twig',
+            array(
+                'aboutIntro' => $aboutIntro[0]
+            ));
     }
 } 
