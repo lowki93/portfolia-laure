@@ -2,6 +2,7 @@
 
 namespace Portfolio\LaureBundle\Command;
 
+use Portfolio\LaureBundle\Entity\AboutIntro;
 use Portfolio\LaureBundle\Entity\SocialNetwork;
 use Portfolio\LaureBundle\Entity\WorkExperienceCV;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
@@ -22,12 +23,13 @@ class GenerateDataCommand extends ContainerAwareCommand
         $workExperienceIntro = $em->getRepository('PortfolioLaureBundle:WorkExperienceIntro')->findAll();
         $workExperienceCV = $em->getRepository('PortfolioLaureBundle:WorkExperienceCV')->findAll();
         $socialNetwork = $em->getRepository('PortfolioLaureBundle:SocialNetwork')->findAll();
+        $aboutIntro = $em->getRepository('PortfolioLaureBundle:AboutIntro')->findAll();
 
         $this->writeConsole($output,"start");
 
         if( $workExperienceIntro == null ) {
             $workExperienceIntro = new WorkExperienceIntro();
-            $workExperienceIntro->setText("Entre ton introduction");
+            $workExperienceIntro->setText("Enter your introduction");
             $em->persist($workExperienceIntro);
             $em->flush();
             $this->writeConsole($output,"create intro for workexperience");
@@ -49,6 +51,14 @@ class GenerateDataCommand extends ContainerAwareCommand
                 $em->flush();
                 $this->writeConsole($output,"create ".$social." for socialNetwork");
             }
+        }
+
+        if( $aboutIntro == null ) {
+            $aboutIntro = new AboutIntro();
+            $aboutIntro->setText("Enter your introduction");
+            $em->persist($aboutIntro);
+            $em->flush();
+            $this->writeConsole($output,"create intro for aboutIntro");
         }
 
         $this->writeConsole($output,"end");
