@@ -6,16 +6,16 @@
         <p>Graphic designer • illustrator • motion designer • web designer</p>
         <a class="goToPorfolio flex" href="#portfolio"><i class="fa fa-long-arrow-down"></i></a>
     </div>
-    <div id="portfolio" class="content rowMarginLess portfolio">
+    <div id="portfolio" class="content flex rowMarginLess portfolio">
         {{ render(controller('PortfolioLaureBundle:Portfolio:index')) }}
     </div>
-    <div id="illustration" class="content rowMarginLess illustration">
+    <div id="illustration" class="content flex rowMarginLess illustration">
         {{ render(controller('PortfolioLaureBundle:Illustration:index')) }}
     </div>
-    <div id="about" class="content rowMarginLess about">
+    <div id="about" class="content flex rowMarginLess about">
         {{ render(controller('PortfolioLaureBundle:About:index')) }}
     </div>
-    <div id="workExperience" class="content rowMarginLess workExperience">
+    <div id="workExperience" class="content flex rowMarginLess workExperience">
         {{ render(controller('PortfolioLaureBundle:WorkExperience:show')) }}
     </div>
     <div id="contact" class="content rowMarginLess contact">
