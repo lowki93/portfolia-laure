@@ -22,7 +22,7 @@
         <div class="medium-6 column">
             {% for date,experiences in workExperiences %}
                 {% if loop.first %}
-                    {% if '{{ date }}' != '{{ "now"|date("Y") }}' %}
+                    {% if date != "now"|date("Y") %}
                         <div class="date first"><span>{{ "now"|date("Y") }}</span></div>
                     {% endif %}
                 {% endif %}
