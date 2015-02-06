@@ -22,7 +22,7 @@ $(document).ready(function($){
         $(this).find('.image').height( $(this).height() - $(this).find('.information').height());
     });
 
-    // For Illustration
+    // For Illustration2
     $('.illustration .cover-close').height($('.illustration .large-6').width() + 20);
     $('.illustration .large-6').height($('.illustration .large-6').width())
     $('.illustration .secondIllustration').height($('.illustration .large-6').height());

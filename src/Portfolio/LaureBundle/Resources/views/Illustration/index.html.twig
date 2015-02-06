@@ -1,65 +1,47 @@
-<div class="row">
-    <h2>ILLUSTRATION</h2>
-    <ul class="cover-close">
-        <li class="large-6 columns">
-            <div class="imageIllustration"
-                 style="background-image: url('/bundles/portfoliolaure/images/test/marin.jpg');">
-            </div>
-            <div class="infoIllustration">
-                <h3>VECTOR</h3>
-                <p>Marin d’eau douce</p>
-            </div>
-        </li>
-        <li class="large-3 columns secondIllustration">
-            <div class="imageIllustration"
-                 style="background-image: url('/bundles/portfoliolaure/images/test/Beetles_are_not_so_pretty.jpg');">
-            </div>
-            <div class="information">
-                <h4>SERIE</h4>
-                <p>Beetles are not so pretty</p>
-                <p>Série d’illustrations format raisin au rothring noir 0,8 et 0,2 sur calque</p>
-            </div>
-        </li>
-        <li class="large-3 end columns">
-            <div class="imageIllustration"
-                 style="background-image: url('/bundles/portfoliolaure/images/test/joy.jpg');">
-            </div>
-        </li>
-        <li class="large-3 end columns last">
-            <div class="imageIllustration"
-                 style="background-image: url('/bundles/portfoliolaure/images/test/dame_mobile.jpg');">
-            </div>
-        </li>
+{% extends '::base.html.twig' %}
 
-        <li class="large-6 columns">
-            <div class="imageIllustration"
-                 style="background-image: url('/bundles/portfoliolaure/images/test/marin.jpg');">
-            </div>
-            <div class="infoIllustration">
-                <h3>VECTOR</h3>
-                <p>Marin d’eau douce</p>
-            </div>
-        </li>
-        <li class="large-3 columns secondIllustration">
-            <div class="imageIllustration"
-                 style="background-image: url('/bundles/portfoliolaure/images/test/Beetles_are_not_so_pretty.jpg');">
-            </div>
-            <div class="information">
-                <h4>SERIE</h4>
-                <p>Beetles are not so pretty</p>
-                <p>Série d’illustrations format raisin au rothring noir 0,8 et 0,2 sur calque</p>
-            </div>
-        </li>
-        <li class="large-3 end columns">
-            <div class="imageIllustration"
-                 style="background-image: url('/bundles/portfoliolaure/images/test/joy.jpg');">
-            </div>
-        </li>
-        <li class="large-3 end columns last">
-            <div class="imageIllustration"
-                 style="background-image: url('/bundles/portfoliolaure/images/test/dame_mobile.jpg');">
-            </div>
+{% block body -%}
+    <h1>Illustration list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Type</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Path</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('illustration_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.type }}</td>
+                <td>{{ entity.title }}</td>
+                <td>{{ entity.description }}</td>
+                <td>{{ entity.path }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('illustration_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('illustration_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('illustration_new') }}">
+                Create a new entry
+            </a>
         </li>
     </ul>
-    {% include 'PortfolioLaureBundle:Partial:more.button.html.twig' %}
-</div>
+    {% endblock %}

@@ -1,0 +1,30 @@
+illustration:
+    path:     /
+    defaults: { _controller: "PortfolioLaureBundle:Illustration:index" }
+
+illustration_show:
+    path:     /{id}/show
+    defaults: { _controller: "PortfolioLaureBundle:Illustration:show" }
+
+illustration_new:
+    path:     /new
+    defaults: { _controller: "PortfolioLaureBundle:Illustration:new" }
+
+illustration_create:
+    path:     /create
+    defaults: { _controller: "PortfolioLaureBundle:Illustration:create" }
+    requirements: { _method: post }
+
+illustration_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PortfolioLaureBundle:Illustration:edit" }
+
+illustration_update:
+    path:     /{id}/update
+    defaults: { _controller: "PortfolioLaureBundle:Illustration:update" }
+    requirements: { _method: post|put }
+
+illustration_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PortfolioLaureBundle:Illustration:delete" }
+    requirements: { _method: post|delete }

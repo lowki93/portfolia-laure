@@ -25,3 +25,7 @@ PortfolioLaureBundle_aboutintro:
 PortfolioLaureBundle_aboutfeeling:
     resource: "@PortfolioLaureBundle/Resources/config/routing/aboutfeeling.yml"
     prefix:   /aboutfeeling
+
+PortfolioLaureBundle_illustration:
+    resource: "@PortfolioLaureBundle/Resources/config/routing/illustration.yml"
+    prefix:   /illustration
