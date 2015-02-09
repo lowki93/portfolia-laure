@@ -91,21 +91,18 @@ class IllustrationController extends Controller
      * Finds and displays a Illustration entity.
      *
      */
-    public function showAction($id)
+    public function showAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('PortfolioLaureBundle:Illustration')->find($id);
+        $illustrations = $em->getRepository('PortfolioLaureBundle:Illustration')->findAll();
 
-        if (!$entity) {
+        if (!$illustrations) {
             throw $this->createNotFoundException('Unable to find Illustration entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
-
         return $this->render('PortfolioLaureBundle:Illustration:show.html.twig', array(
-            'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
+            'illustrations'      => $illustrations,
         ));
     }
 

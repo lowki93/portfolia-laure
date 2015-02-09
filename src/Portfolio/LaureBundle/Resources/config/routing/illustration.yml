@@ -2,10 +2,6 @@ illustration:
     path:     /
     defaults: { _controller: "PortfolioLaureBundle:Illustration:index" }
 
-illustration_show:
-    path:     /{id}/show
-    defaults: { _controller: "PortfolioLaureBundle:Illustration:show" }
-
 illustration_new:
     path:     /new
     defaults: { _controller: "PortfolioLaureBundle:Illustration:new" }
