@@ -18,7 +18,7 @@ class IllustrationType extends AbstractType
             ->add('type')
             ->add('title')
             ->add('description')
-            ->add('path')
+            ->add('file')
         ;
     }
     

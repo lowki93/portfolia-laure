@@ -44,7 +44,7 @@ class IllustrationController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('illustration_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('illustration'));
         }
 
         return $this->render('PortfolioLaureBundle:Illustration:new.html.twig', array(
@@ -170,6 +170,7 @@ class IllustrationController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
+            $entity->preUpload();
             $em->flush();
 
             return $this->redirect($this->generateUrl('illustration_edit', array('id' => $id)));

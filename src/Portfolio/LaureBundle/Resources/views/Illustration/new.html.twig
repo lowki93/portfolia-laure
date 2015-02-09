@@ -1,15 +1,11 @@
-{% extends '::base.html.twig' %}
+{% extends '::baseAdmin.html.twig' %}
 
-{% block body -%}
-    <h1>Illustration creation</h1>
+{% block content %}
+    <h4>Créer ton illustration</h4>
 
     {{ form(form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('illustration') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+    <a href="{{ path('illustration') }}">
+        Back to the list
+    </a>
 {% endblock %}
