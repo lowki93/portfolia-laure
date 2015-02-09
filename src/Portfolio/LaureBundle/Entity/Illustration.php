@@ -3,15 +3,19 @@
 namespace Portfolio\LaureBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Knp\DoctrineBehaviors\Model as ORMBehaviors;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Illustration
  *
  * @ORM\Table()
+ * @ORM\HasLifecycleCallbacks
  * @ORM\Entity
  */
 class Illustration
 {
+    use ORMBehaviors\Sluggable\Sluggable;
     /**
      * @var integer
      *
@@ -45,10 +49,70 @@ class Illustration
     /**
      * @var string
      *
-     * @ORM\Column(name="path", type="string", length=255)
+     * @ORM\Column(name="path", type="string", length=255, nullable=true)
      */
     private $path;
 
+    /**
+     * @Assert\File(maxSize="6000000")
+     */
+    public $file;
+
+    public function getAbsolutePath()
+    {
+        return null === $this->path ? null : $this->getUploadRootDir().'/'.$this->path;
+    }
+
+    public function getWebPath()
+    {
+        return null === $this->path ? null : $this->getUploadDir().'/'.$this->path;
+    }
+
+    protected function getUploadRootDir()
+    {
+        return __DIR__.'/../../../../web/'.$this->getUploadDir();
+    }
+
+    protected function getUploadDir()
+    {
+        return 'uploads/illustration';
+    }
+
+    /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function preUpload()
+    {
+        if (null !== $this->file) {
+            $this->path = preg_replace("/[^a-zA-Z0-9]+/", "_", $this->title).'.'.$this->file->guessExtension();
+        }
+    }
+
+    /**
+     * @ORM\PostPersist()
+     * @ORM\PostUpdate()
+     */
+    public function upload()
+    {
+        if (null === $this->file) {
+            return;
+        }
+
+        $this->file->move($this->getUploadRootDir(), $this->path);
+
+        unset($this->file);
+    }
+
+    /**
+     * @ORM\PostRemove()
+     */
+    public function removeUpload()
+    {
+        if ($file = $this->getAbsolutePath()) {
+            unlink($file);
+        }
+    }
 
     /**
      * Get id
@@ -130,19 +194,6 @@ class Illustration
     }
 
     /**
-     * Set path
-     *
-     * @param string $path
-     * @return Illustration
-     */
-    public function setPath($path)
-    {
-        $this->path = $path;
-
-        return $this;
-    }
-
-    /**
      * Get path
      *
      * @return string 
@@ -151,4 +202,10 @@ class Illustration
     {
         return $this->path;
     }
+
+    public function getSluggableFields()
+    {
+        return [ 'title' ];
+    }
+
 }
