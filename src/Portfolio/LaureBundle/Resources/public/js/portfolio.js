@@ -22,8 +22,7 @@ $(document).ready(function($){
         $(this).find('.image').height( $(this).height() - $(this).find('.information').height());
     });
 
-    // For Illustration2
-    $('.illustration .cover-close').height($('.illustration .large-6').width() + 20);
+    // For Illustration
     $('.illustration .large-6').height($('.illustration .large-6').width())
     $('.illustration .secondIllustration').height($('.illustration .large-6').height());
     $('.illustration .secondIllustration .imageIllustration').height($('.illustration .secondIllustration').height() - $('.illustration .secondIllustration .information').height() - 20 );
@@ -31,6 +30,7 @@ $(document).ready(function($){
         $(this).height($(this).width());
     });
     $('.illustration .large-3.last').css("margin-top", $('.illustration .large-6').height() -  ($('.illustration .large-3.end').height() * 2) );
+    $('.illustration .cover-close').height($('.illustration .large-6').width() + 20);
 
     // For About
     $('.about div.circle').height($('.about div.circle').width() - 20);
