@@ -51,7 +51,7 @@ class Illustration
      *
      * @ORM\Column(name="path", type="string", length=255, nullable=true)
      */
-    public $path;
+    protected $path;
 
     /**
      * @var string
