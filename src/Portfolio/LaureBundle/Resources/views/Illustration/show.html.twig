@@ -1,17 +1,39 @@
 <div class="row">
     <h2>ILLUSTRATION</h2>
     <ul class="cover-close">
+        {% set backClassIllustration = '' %}
         {% for illustration in illustrations %}
-            <li class="large-6 columns">
-                <div class="imageIllustration"
-                    style="background-image: url('/bundles/portfoliolaure/images/test/marin.jpg');">
-                </div>
-                {{ dump(getimagesize("http://www.example.com/gifs/logo.gif")) }}
-                <div class="infoIllustration">
-                    <h3>{{ illustration.type|upper }}</h3>
-                    <p>{{ illustration.title|capitalize }}</p>
-                </div>
-            </li>
+            {% if illustration.fileSize == 'equal' %}
+                {% set arrayClass = ['large-6', 'large-3 end'] %}
+                {%  if backClassIllustration == 'large-3 end' %}
+                    {% set classIllustration = 'large-3 end last' %}
+                {% else %}
+                    {% set classIllustration = random(arrayClass) %}
+                {% endif %}
+                <li class="{{ classIllustration }} columns">
+                    <div class="imageIllustration"
+                        style="background-image: url('/uploads/illustration/{{ illustration.path }}');">
+                    </div>
+                    {% if classIllustration == 'large-6' %}
+                        <div class="infoIllustration">
+                            <h3>{{ illustration.type|upper }}</h3>
+                            <p>{{ illustration.title|capitalize }}</p>
+                        </div>
+                    {% endif %}
+                    {% set backClassIllustration = classIllustration %}
+                </li>
+            {% elseif illustration.fileSize == 'width' %}
+                <li class="large-3 columns secondIllustration">
+                    <div class="imageIllustration"
+                         style="background-image: url('/uploads/illustration/{{ illustration.path }}');">
+                    </div>
+                    <div class="information">
+                        <h4>{{ illustration.type|upper }}</h4>
+                        <p>{{ illustration.title|capitalize }}</p>
+                        <p>{{ illustration.description|capitalize }}</p>
+                    </div>
+                </li>
+            {% endif %}
         {% endfor %}
         {#<li class="large-6 columns">#}
             {#<div class="imageIllustration"#}

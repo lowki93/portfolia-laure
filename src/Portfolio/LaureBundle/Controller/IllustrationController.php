@@ -42,6 +42,7 @@ class IllustrationController extends Controller
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
+            $entity->upload();
             $em->flush();
 
             return $this->redirect($this->generateUrl('illustration'));
@@ -167,7 +168,7 @@ class IllustrationController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
-            $entity->preUpload();
+            $entity->upload();
             $em->flush();
 
             return $this->redirect($this->generateUrl('illustration_edit', array('id' => $id)));
