@@ -30,7 +30,13 @@ $(document).ready(function($){
         $(this).height($(this).width());
     });
     $('.illustration .large-3.last').css("margin-top", $('.illustration .large-6').height() -  ($('.illustration .large-3.end').height() * 2) );
-    $('.illustration .cover-close').height($('.illustration .large-6').width() + 20);
+    var heightIllustration;
+    if($('.illustration .large-6')){
+        heightIllustration = $('.illustration .large-6').width();
+    } else {
+        heightIllustration = $('.illustration .large-3').width()
+    }
+    $('.illustration .cover-close').height( heightIllustration + 20);
 
     // For About
     $('.about div.circle').height($('.about div.circle').width() - 20);
