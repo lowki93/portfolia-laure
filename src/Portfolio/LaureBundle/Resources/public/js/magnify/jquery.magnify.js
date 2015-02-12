@@ -1,0 +1,1 @@
+../../../../../../../bower_components/magnify/dist/js/jquery.magnify.js

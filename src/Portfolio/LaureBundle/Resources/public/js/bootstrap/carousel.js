@@ -1,0 +1,1 @@
+../../../../../../../bower_components/bootstrap-sass-twbs/assets/javascripts/bootstrap/carousel.js
