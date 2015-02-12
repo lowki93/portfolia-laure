@@ -1,0 +1,43 @@
+{
+  "name": "magnify",
+  "description": "A simple, lightweight jQuery magnifying glass zoom plugin.",
+  "version": "1.2.6",
+  "main": [
+    "dist/css/magnify.css",
+    "dist/js/jquery.magnify.js"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "*.json",
+    "LICENSE",
+    "README.md"
+  ],
+  "keywords": [
+    "jquery plugin",
+    "jquery magnify",
+    "magnify",
+    "zoom"
+  ],
+  "authors": [
+    "Tom Doan <thdoan@gmail.com> (http://www.tohodo.com/)"
+  ],
+  "homepage": "http://thdoan.github.io/magnify/",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/thdoan/magnify.git"
+  },
+  "dependencies": {
+    "jquery": ">=1.7.0"
+  },
+  "_release": "1.2.6",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.2.6",
+    "commit": "26d54ccd272a81805b4b7cfb931edb39286f6ecd"
+  },
+  "_source": "git://github.com/thdoan/magnify.git",
+  "_target": "~1.2.6",
+  "_originalSource": "magnify",
+  "_direct": true
+}
