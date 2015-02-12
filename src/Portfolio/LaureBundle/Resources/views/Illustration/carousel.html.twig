@@ -1,0 +1,27 @@
+{#{% extends '::base.html.twig' %}#}
+
+{#{% block body %}#}
+    <div id="carousel-illustration" class="carousel slide" data-ride="carousel">
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            {% for illustration in illustrations %}
+                <div class="item{% if loop.first %} active{% endif %}">
+                    <img src="/uploads/illustration/{{ illustration.path }}"
+                         alt="slide {{ loop.index }}"
+                         data-magnify-src="/uploads/illustration/{{ illustration.path }}" />
+                    <div class="orbit-caption">
+
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-illustration" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel-illustration" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+    </div>
+{#{% endblock %}#}
