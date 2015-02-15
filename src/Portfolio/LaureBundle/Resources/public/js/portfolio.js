@@ -1,24 +1,26 @@
 $(document).ready(function($){
 
     var
-        imputName,
         portfolioList,
-        illustrationLarge6,
-        illustrationLarge3End,
-        illustrationSecond,
+        illustration,
         aboutCircle,
-        contactTextarea,
-        contactInput,
-        contactTextPrefix;
+        contact,
+        carouselItem;
 
     portfolioList = $('.portfolio ul li');
-    illustrationLarge6 = $('.illustration .large-6');
-    illustrationSecond = $('.illustration .secondIllustration');
-    illustrationLarge3End = $('.illustration .large-3.end');
+    illustration = {
+        large6 : $('.illustration .large-6'),
+        second : $('.illustration .secondIllustration'),
+        large3End : $('.illustration .large-3.end')
+    };
     aboutCircle = $('.about div.circle');
-    contactTextarea = $('.contact textarea');
-    contactInput = $( ".contact input" );
-    contactTextPrefix = $('.contact .text .prefix');
+    contact = {
+        textarea : $('.contact textarea'),
+        input : $( ".contact input" ),
+        textPrefix : $('.contact .text .prefix'),
+        imputName : ''
+    };
+    carouselItem = $('.item');
 
     $('#nav ul li a[href*=#]').click(function() {
         scroll($(this).attr('href'));
@@ -42,16 +44,16 @@ $(document).ready(function($){
     });
 
     // For Illustration
-    illustrationLarge6.height(illustrationLarge6.width());
-    illustrationSecond.height(illustrationLarge6.height());
-    $('.illustration .secondIllustration .imageIllustration').height(illustrationSecond.height() - $('.illustration .secondIllustration .information').height() - 20 );
-    $.each( illustrationLarge3End, function(){
+    illustration.large6.height(illustration.large6.width());
+    illustration.second.height(illustration.large6.height());
+    $('.illustration .secondIllustration .imageIllustration').height(illustration.second.height() - $('.illustration .secondIllustration .information').height() - 20 );
+    $.each( illustration.large3End, function(){
         $(this).height($(this).width());
     });
-    $('.illustration .large-3.last').css("margin-top", illustrationLarge6.height() - (illustrationLarge3End.height() * 2) );
+    $('.illustration .large-3.last').css("margin-top", illustration.large6.height() - (illustration.large3End.height() * 2) );
     var heightIllustration;
-    if(illustrationLarge6){
-        heightIllustration = illustrationLarge6.width();
+    if(illustration.large6){
+        heightIllustration = illustration.large6.width();
     } else {
         heightIllustration = $('.illustration .large-3').width()
     }
@@ -62,32 +64,35 @@ $(document).ready(function($){
     $('.workExperience div.medium-6:first-child').height($('.workExperience div.medium-6:last-child').height());
 
     // For Contact
-    contactTextPrefix.height(contactTextarea.height() + 16);
-    contactInput.focusin(function() {
-        imputName = $(this).attr("class");
-        $('.contact .'+imputName+' .prefix').addClass('border');
+    contact.textPrefix.height(contact.textarea.height() + 16);
+    contact.input.focusin(function() {
+        contact.imputName = $(this).attr("class");
+        $('.contact .'+contact.imputName+' .prefix').addClass('border');
     });
 
-    contactTextarea.focusin(function() {
-        imputName = $(this).attr("class");
-        $('.contact .'+imputName+' .prefix').addClass('border');
+    contact.textarea.focusin(function() {
+        contact.imputName = $(this).attr("class");
+        $('.contact .'+contact.imputName+' .prefix').addClass('border');
     });
 
-    contactTextarea.focusout(function() {
-        $('.contact .'+imputName+' .prefix').removeClass("border");
+    contact.textarea.focusout(function() {
+        $('.contact .'+contact.imputName+' .prefix').removeClass("border");
     });
 
-    contactInput.focusout(function() {
-        $('.contact .'+imputName+' .prefix').removeClass("border");
+    contact.input.focusout(function() {
+        $('.contact .'+contact.imputName+' .prefix').removeClass("border");
     });
 
-    contactTextarea.bind('mouseup mousemove', function() {
-        contactTextPrefix.height($(this).height() + 16);
+    contact.textarea.bind('mouseup mousemove', function() {
+        contact.textPrefix.height($(this).height() + 16);
     });
 
     $('.carousel').carousel({
         interval: false
+    }).on('slide.bs.carousel', function () {
+
     });
+    carouselItem.width(carouselItem.width());
     $('.carousel img').magnify();
 
 });
