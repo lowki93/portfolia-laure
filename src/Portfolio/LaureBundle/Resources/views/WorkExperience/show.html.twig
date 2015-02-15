@@ -30,7 +30,10 @@
                     <div class="experience{% if loop.last %} last{% endif %}">
                         <div class="rectangle"></div>
                         <div class="experienceLogo">
-                            <img src="/uploads/workexperience/{{ experience.path }}" alt="{{ experience.company }}" />
+                            {% if experience.path is not empty %}
+                                <img src="/uploads/workexperience/{{ experience.path }}"
+                                    alt="{{ experience.company }}" />
+                            {% endif %}
                         </div>
                         <div class="experienceContent">
                             <h3>

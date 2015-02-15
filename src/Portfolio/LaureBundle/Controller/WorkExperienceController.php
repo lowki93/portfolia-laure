@@ -39,7 +39,8 @@ class WorkExperienceController extends Controller
 
         $workExperiences = $em->getRepository('PortfolioLaureBundle:WorkExperience')->findBy(
             array(),
-            array('createdAt' => 'DESC')
+            array('createdAt' => 'DESC'),
+            5
         );
 
         $intro = $em->getRepository('PortfolioLaureBundle:WorkExperienceIntro')->findAll();

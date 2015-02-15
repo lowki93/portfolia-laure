@@ -2,6 +2,7 @@
 
 {% block content%}
     <h4>Liste du Parcours Professionelles</h4>
+    <a href="{{ path('workexperience_new') }}">Ajouter un nouveaux parcours</a>
     <table class="medium-12 columns" >
         <thead>
             <tr>
@@ -23,11 +24,13 @@
                     <td>{{ entity.information }}</td>
                     <td>{{ entity.year }}</td>
                     <td>
-                        <ul class="small-block-grid-6 medium-block-grid-6">
-                            <li>
-                                <img src="/uploads/workexperience/{{ entity.path }}" alt="{{ entity.company }}" />
-                            </li>
-                        </ul>
+                        {% if entity.path is not empty %}
+                            <ul class="small-block-grid-6 medium-block-grid-6">
+                                <li>
+                                    <img src="/uploads/workexperience/{{ entity.path }}" alt="{{ entity.company }}" />
+                                </li>
+                            </ul>
+                        {% endif %}
                     </td>
                     <td>
                         <a href="{{ path('workexperience_edit', { 'id': entity.id }) }}">editer</a>
@@ -36,7 +39,6 @@
             {% endfor %}
         </tbody>
     </table>
-    <a href="{{ path('workexperience_new') }}">Ajouter un nouveaux parcours</a>
     {{ render(controller('PortfolioLaureBundle:WorkExperienceCV:index')) }}
     {{ render(controller('PortfolioLaureBundle:WorkExperienceIntro:index')) }}
 {% endblock %}
