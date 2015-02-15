@@ -1,26 +1,25 @@
 $(document).ready(function($){
 
-    var
-        portfolioList,
-        illustration,
-        aboutCircle,
-        contact,
-        carouselItem;
-
-    portfolioList = $('.portfolio ul li');
-    illustration = {
+    var portfolioList = $('.portfolio ul li');
+    var illustration = {
+        item : $('.illustration-content ul li'),
         large6 : $('.illustration .large-6'),
         second : $('.illustration .secondIllustration'),
-        large3End : $('.illustration .large-3.end')
+        large3End : $('.illustration .large-3.end'),
+        carousel : $('.carousel'),
+        list : $('  .illustration-content')
     };
-    aboutCircle = $('.about div.circle');
-    contact = {
+    var aboutCircle = $('.about div.circle');
+    var contact = {
         textarea : $('.contact textarea'),
         input : $( ".contact input" ),
         textPrefix : $('.contact .text .prefix'),
         imputName : ''
     };
-    carouselItem = $('.item');
+    var carousel = {
+        item : $('.carousel .item'),
+        content : $('.carousel-inner')
+    };
 
     $('#nav ul li a[href*=#]').click(function() {
         scroll($(this).attr('href'));
@@ -59,6 +58,12 @@ $(document).ready(function($){
     }
     $('.illustration .cover-close').height( heightIllustration + 20);
 
+    illustration.carousel.carousel({
+        interval: false
+    }).on('slide.bs.carousel', function () {
+
+    });
+
     // For About
     aboutCircle.height(aboutCircle.width() - 20);
     $('.workExperience div.medium-6:first-child').height($('.workExperience div.medium-6:last-child').height());
@@ -87,23 +92,27 @@ $(document).ready(function($){
         contact.textPrefix.height($(this).height() + 16);
     });
 
-    $('.carousel').carousel({
-        interval: false
-    }).on('slide.bs.carousel', function () {
+    illustration.item.click( function() {
+
+        carousel.content.find('[data-slide="'+$(this).index()+'"]').addClass('active');
+        illustration.carousel.show();
+        illustration.list.hide();
+
+        carousel.item.width(carousel.item.width());
+        $('.carousel img').magnify();
 
     });
-    carouselItem.width(carouselItem.width());
-    $('.carousel img').magnify();
+
+    // function
+    var scroll = function(url) {
+
+        $.smoothScroll({
+
+            scrollElement: $('.scroll-area'),
+            scrollTarget: url
+
+        });
+
+    };
 
 });
-
-var scroll = function(url) {
-
-    $.smoothScroll({
-
-        scrollElement: $('.scroll-area'),
-        scrollTarget: url
-
-    });
-
-};

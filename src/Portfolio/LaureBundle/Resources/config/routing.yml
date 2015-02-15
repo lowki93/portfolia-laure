@@ -6,6 +6,12 @@ laure_download_cv:
     path: /download-cv
     defaults: { _controller: PortfolioLaureBundle:WorkExperienceCV:downloadCV }
 
+laure_illustrations_carousel:
+    path: /illustrations-carousel
+    defaults: { _controller: PortfolioLaureBundle:Illustration:carousel }
+    options:
+        expose: true
+
 PortfolioLaureBundle_admin:
     resource: "@PortfolioLaureBundle/Resources/config/routing/admin.yml"
     prefix:   /admin

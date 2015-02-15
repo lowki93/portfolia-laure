@@ -1,38 +1,40 @@
 <div class="row">
     <h2>ILLUSTRATION</h2>
-    <ul class="cover-close">
-        {% set backClassIllustration = '' %}
-        {% for illustration in illustrations %}
-            {% if illustration.fileSize == 'equal' %}
-                {% set infoClass = 'infoIllustration' %}
-                {% set arrayClass = ['large-6', 'large-3 end'] %}
-                {%  if backClassIllustration == 'large-3 end' %}
-                    {% set classIllustration = 'large-3 end last' %}
-                {% else %}
-                    {% set classIllustration = random(arrayClass) %}
+    <div class="illustration-content">
+        <ul class="cover-close">
+            {% set backClassIllustration = '' %}
+            {% for illustration in illustrations %}
+                {% if illustration.fileSize == 'equal' %}
+                    {% set infoClass = 'infoIllustration' %}
+                    {% set arrayClass = ['large-6', 'large-3 end'] %}
+                    {%  if backClassIllustration == 'large-3 end' %}
+                        {% set classIllustration = 'large-3 end last' %}
+                    {% else %}
+                        {% set classIllustration = random(arrayClass) %}
+                    {% endif %}
+                    {% set backClassIllustration = classIllustration %}
+                {% elseif illustration.fileSize == 'width' %}
+                    {% set infoClass = 'information' %}
+                    {% set classIllustration = 'large-3 secondIllustration' %}
+                    {% set backClassIllustration = '' %}
                 {% endif %}
-                {% set backClassIllustration = classIllustration %}
-            {% elseif illustration.fileSize == 'width' %}
-                {% set infoClass = 'information' %}
-                {% set classIllustration = 'large-3 secondIllustration' %}
-                {% set backClassIllustration = '' %}
-            {% endif %}
-            <li class="{{ classIllustration }} columns">
-                <div class="imageIllustration"
-                    style="background-image: url('/uploads/illustration/{{ illustration.path }}');">
-                </div>
-                {% if classIllustration == 'large-6' or classIllustration == 'large-3 secondIllustration' %}
-                    <div class="{{ infoClass }}">
-                        <h3>{{ illustration.type|upper }}</h3>
-                        <p>{{ illustration.title|capitalize }}</p>
-                        {% if illustration.fileSize == 'width' %}
-                            <p>{{ illustration.description|capitalize }}</p>
-                        {% endif %}
+                <li class="{{ classIllustration }} columns">
+                    <div class="imageIllustration"
+                        style="background-image: url('/uploads/illustration/{{ illustration.path }}');">
                     </div>
-                {% endif %}
-            </li>
-        {% endfor %}
-    </ul>
-    {% include 'PortfolioLaureBundle:Illustration:carousel.html.twig' %}
+                    {% if classIllustration == 'large-6' or classIllustration == 'large-3 secondIllustration' %}
+                        <div class="{{ infoClass }}">
+                            <h3>{{ illustration.type|upper }}</h3>
+                            <p>{{ illustration.title|capitalize }}</p>
+                            {% if illustration.fileSize == 'width' %}
+                                <p>{{ illustration.description|capitalize }}</p>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
     {% include 'PortfolioLaureBundle:Partial:more.button.html.twig' %}
+    {% include 'PortfolioLaureBundle:Illustration:carousel.html.twig' %}
 </div>

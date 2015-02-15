@@ -15,6 +15,16 @@ use Portfolio\LaureBundle\Form\IllustrationType;
 class IllustrationController extends Controller
 {
 
+    public function carouselAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $illustrations = $em->getRepository('PortfolioLaureBundle:Illustration')->findAll();
+
+        return $this->render('PortfolioLaureBundle:Illustration:carousel.html.twig', array(
+            'illustrations' => $illustrations
+        ));
+    }
     /**
      * Lists all Illustration entities.
      *

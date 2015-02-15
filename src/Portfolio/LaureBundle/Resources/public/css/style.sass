@@ -7,8 +7,6 @@
 @import variable
 @import magnify
 
-$headerHeigth: 60px
-
 header
   width: 100%
   position: fixed
@@ -151,6 +149,29 @@ header
               font-size: 16px
             &:last-child
               font-size: 12px
+    .carousel
+      display: none
+      .carousel-inner
+        text-align: center
+        .item
+          text-align: center
+          .information-content
+            text-align: center
+            .information-carousel
+              width: $carouselWidth
+              display: inline-block
+              color: $lightBlack
+              text-align: left
+              h3
+                color: $lightBlack
+              p
+                font-size: 24px
+                width: 40%
+      .carousel-control
+        background-image: none
+        top: 50%
+        bottom: auto
+        width: auto
 
 .about
   +futura(medium)
