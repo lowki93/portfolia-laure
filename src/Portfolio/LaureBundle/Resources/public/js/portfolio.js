@@ -50,7 +50,7 @@ $(document).ready(function($){
     illustration.large3End.height(illustration.large6.width());
     illustration.second.height(illustration.large6.height());
     $('.illustration .secondIllustration .imageIllustration').height(illustration.second.height() - $('.illustration .secondIllustration .information').height() - 20 );
-    $('.illustration .second:last-child').css("margin-top", illustration.large6.height() - (illustration.second.height() * 2) );
+    $('.illustration .second:last-child').css("margin-top", illustration.large6.height() - (illustration.large3inside.height() * 2) );
     $('.illustration .cover-close').height( illustration.large6.height() + 20);
 
     illustration.carousel.carousel({

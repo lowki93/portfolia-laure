@@ -20,7 +20,7 @@
             {% set classIllustration = '' %}
             {% set nb = 0 %}
             {% for illustration in illustrations %}
-                {% if loop.index is divisible by(5) or loop.first %}
+                {% if nb is divisible by(4) or loop.first %}
                     {% set arrayClass = [firstArray, secondArray, thirdArray] %}
                     {% set classIllustration = random(arrayClass) %}
                     {% set nb = 0 %}
