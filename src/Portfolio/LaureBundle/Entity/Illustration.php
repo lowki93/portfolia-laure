@@ -54,13 +54,6 @@ class Illustration
     protected $path;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="fileSize", type="string", length=255, nullable=true)
-     */
-    private $fileSize;
-
-    /**
      * @Assert\File(maxSize="6000000")
      */
     public $file;
@@ -87,7 +80,6 @@ class Illustration
 
     /**
      * @ORM\PrePersist()
-     * @ORM\PreUpdate()
      */
     public function preUpload()
     {
@@ -96,10 +88,6 @@ class Illustration
         }
     }
 
-    /**
-     * @ORM\PreUpdate()
-     * @ORM\PostUpdate()
-     */
     public function upload()
     {
         if (null === $this->file) {
@@ -107,12 +95,6 @@ class Illustration
         }
 
         $this->file->move($this->getUploadRootDir(), $this->path);
-            list($width, $height) = getimagesize($this->getUploadRootDir()."/".$this->path);
-            if($width < $height) {
-                $this->fileSize = "width";
-            } else {
-                $this->fileSize = "equal";
-            }
 
         unset($this->file);
     }
@@ -214,29 +196,6 @@ class Illustration
     public function getPath()
     {
         return $this->path;
-    }
-
-    /**
-     * Set fileSize
-     *
-     * @param string $fileSize
-     * @return Illustration
-     */
-    public function setFileSize($fileSize)
-    {
-        $this->fileSize = $fileSize;
-
-        return $this;
-    }
-
-    /**
-     * Get fileSize
-     *
-     * @return string
-     */
-    public function getFileSize()
-    {
-        return $this->fileSize;
     }
 
     public function getSluggableFields()

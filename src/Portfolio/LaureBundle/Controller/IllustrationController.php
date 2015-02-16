@@ -178,6 +178,7 @@ class IllustrationController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
+            $entity->preUpload();
             $entity->upload();
             $em->flush();
 
