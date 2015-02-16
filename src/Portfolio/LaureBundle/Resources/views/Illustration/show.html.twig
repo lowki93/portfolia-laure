@@ -1,37 +1,59 @@
+{% set firstArray = ['large-6',
+    'large-3 secondIllustration',
+    'large-3 end',
+    'large-3 end last'
+] %}
+{% set secondArray = ['large-3 end',
+    'large-3 end last',
+    'large-6',
+    'large-3 secondIllustration'
+] %}
+{% set thirdArray = ['large-3 secondIllustration',
+    'large-3 end',
+    'large-3 end last',
+    'large-6'
+] %}
 <div class="row">
     <h2>ILLUSTRATION</h2>
     <div class="illustration-content">
         <ul class="cover-close">
-            {% set backClassIllustration = '' %}
+            {% set classIllustration = '' %}
+            {% set nb = 0 %}
             {% for illustration in illustrations %}
-                {% if illustration.fileSize == 'equal' %}
-                    {% set infoClass = 'infoIllustration' %}
-                    {% set arrayClass = ['large-6', 'large-3 end'] %}
-                    {%  if backClassIllustration == 'large-3 end' %}
-                        {% set classIllustration = 'large-3 end last' %}
-                    {% else %}
-                        {% set classIllustration = random(arrayClass) %}
-                    {% endif %}
-                    {% set backClassIllustration = classIllustration %}
-                {% elseif illustration.fileSize == 'width' %}
-                    {% set infoClass = 'information' %}
-                    {% set classIllustration = 'large-3 secondIllustration' %}
-                    {% set backClassIllustration = '' %}
+                {% if loop.index is divisible by(5) or loop.first %}
+                    {% set arrayClass = [firstArray, secondArray, thirdArray] %}
+                    {% set classIllustration = random(arrayClass) %}
+                    {% set nb = 0 %}
                 {% endif %}
-                <li class="{{ classIllustration }} columns">
-                    <div class="imageIllustration"
-                        style="background-image: url('/uploads/illustration/{{ illustration.path }}');">
-                    </div>
-                    {% if classIllustration == 'large-6' or classIllustration == 'large-3 secondIllustration' %}
-                        <div class="{{ infoClass }}">
-                            <h3>{{ illustration.type|upper }}</h3>
-                            <p>{{ illustration.title|capitalize }}</p>
-                            {% if illustration.fileSize == 'width' %}
-                                <p>{{ illustration.description|capitalize }}</p>
-                            {% endif %}
-                        </div>
+                {% set class = classIllustration[nb] %}
+                {% if class == 'large-6' %}
+                    {% set infoClass = 'infoIllustration' %}
+                {% elseif class == 'large-3 secondIllustration' %}
+                    {% set infoClass = 'information' %}
+                {% endif %}
+                {% if class != "large-3 end last" %}
+                    <li class="{{ class }} columns">
+                {% endif %}
+                    {% if class == "large-3 end last" or class == 'large-3 end'%}
+                        <div class="second">
                     {% endif %}
-                </li>
+                        <div class="imageIllustration"
+                             style="background-image: url('/uploads/illustration/{{ illustration.path }}');">
+                        </div>
+                        {% if class == 'large-6' or class == 'large-3 secondIllustration' %}
+                            <div class="{{ infoClass }}">
+                                <h3>{{ illustration.type|upper }}</h3>
+                                <p>{{ illustration.title|capitalize }}</p>
+                                {% if class == 'large-3 secondIllustration' %}
+                                    <p>{{ illustration.description|capitalize }}</p>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                    {% if class == "large-3 end last" or class == 'large-3 end'%}</div>{% endif %}
+                {% if class != 'large-3 end' %}
+                    </li>
+                {% endif %}
+                {% set nb = nb + 1 %}
             {% endfor %}
         </ul>
         {% include 'PortfolioLaureBundle:Partial:more.button.html.twig' %}

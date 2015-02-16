@@ -5,6 +5,7 @@ $(document).ready(function($){
         item : $('.illustration-content ul li'),
         large6 : $('.illustration .large-6'),
         second : $('.illustration .secondIllustration'),
+        large3inside : $('.illustration .second'),
         large3End : $('.illustration .large-3.end'),
         carousel : $('.carousel'),
         list : $('  .illustration-content')
@@ -43,20 +44,16 @@ $(document).ready(function($){
     });
 
     // For Illustration
+    illustration.large3inside.height(illustration.large3inside.width());
     illustration.large6.height(illustration.large6.width());
+    illustration.large3End.height(illustration.large6.height());
     illustration.second.height(illustration.large6.height());
     $('.illustration .secondIllustration .imageIllustration').height(illustration.second.height() - $('.illustration .secondIllustration .information').height() - 20 );
     $.each( illustration.large3End, function(){
         $(this).height($(this).width());
     });
-    $('.illustration .large-3.last').css("margin-top", illustration.large6.height() - (illustration.large3End.height() * 2) );
-    var heightIllustration;
-    if(illustration.large6){
-        heightIllustration = illustration.large6.width();
-    } else {
-        heightIllustration = $('.illustration .large-3').width()
-    }
-    $('.illustration .cover-close').height( heightIllustration + 20);
+    $('.illustration .second:last-child').css("margin-top", illustration.large6.height() - (illustration.large3End.height() * 2) );
+    $('.illustration .cover-close').height( illustration.large6.height() + 20);
 
     illustration.carousel.carousel({
         interval: false
