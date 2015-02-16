@@ -5,10 +5,11 @@ $(document).ready(function($){
         item : $('.illustration-content ul li'),
         large6 : $('.illustration .large-6'),
         second : $('.illustration .secondIllustration'),
-        large3inside : $('.illustration .second'),
+        large3inside : $('.illustration .large-3.end .second'),
         large3End : $('.illustration .large-3.end'),
         carousel : $('.carousel'),
-        list : $('  .illustration-content')
+        list : $('  .illustration-content'),
+        image : $('.imageIllustration')
     };
     var aboutCircle = $('.about div.circle');
     var contact = {
@@ -89,9 +90,10 @@ $(document).ready(function($){
         contact.textPrefix.height($(this).height() + 16);
     });
 
-    illustration.item.click( function() {
+    illustration.image.click( function() {
 
-        carousel.content.find('[data-slide="'+$(this).index()+'"]').addClass('active');
+        var id = $(this).attr('data-id');
+        carousel.content.find('[data-slide="'+id+'"]').addClass('active');
         illustration.carousel.show();
         illustration.list.hide();
 

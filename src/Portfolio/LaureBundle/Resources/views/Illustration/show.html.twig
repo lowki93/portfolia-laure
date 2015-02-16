@@ -38,6 +38,7 @@
                         <div class="second">
                     {% endif %}
                         <div class="imageIllustration"
+                             data-id="{{ loop.index - 1 }}"
                              style="background-image: url('/uploads/illustration/{{ illustration.path }}');">
                         </div>
                         {% if class == 'large-6' or class == 'large-3 secondIllustration' %}
