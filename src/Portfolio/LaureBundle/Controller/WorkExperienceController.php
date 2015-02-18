@@ -37,10 +37,12 @@ class WorkExperienceController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
+        $nb = $em->getRepository('PortfolioLaureBundle:WorkExperienceNb')->findAll();
+
         $workExperiences = $em->getRepository('PortfolioLaureBundle:WorkExperience')->findBy(
             array(),
             array('createdAt' => 'DESC'),
-            5
+            $nb[0]->getNumber()
         );
 
         $intro = $em->getRepository('PortfolioLaureBundle:WorkExperienceIntro')->findAll();

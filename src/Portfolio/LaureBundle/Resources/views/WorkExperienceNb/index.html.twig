@@ -1,0 +1,19 @@
+<h4>nombre de workExperience</h4>
+<table class="medium-12 columns">
+    <thead>
+        <tr>
+            <th>Number</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>{{ entity.number }}</td>
+                <td>
+                    <a href="{{ path('workexperiencenb_edit', { 'id': entity.id }) }}">edit</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

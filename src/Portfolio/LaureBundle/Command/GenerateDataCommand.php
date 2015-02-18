@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Portfolio\LaureBundle\Entity\WorkExperienceIntro;
+use Portfolio\LaureBundle\Entity\WorkExperienceNb;
 
 class GenerateDataCommand extends ContainerAwareCommand
 {
@@ -17,11 +18,16 @@ class GenerateDataCommand extends ContainerAwareCommand
         $this->setName('laure:generate-data');
     }
 
+    /**
+     * @param InputInterface  $input
+     * @param OutputInterface $output
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $em = $this->getContainer()->get("doctrine")->getManager();
         $workExperienceIntro = $em->getRepository('PortfolioLaureBundle:WorkExperienceIntro')->findAll();
         $workExperienceCV = $em->getRepository('PortfolioLaureBundle:WorkExperienceCV')->findAll();
+        $workExperienceNb = $em->getRepository('PortfolioLaureBundle:WorkExperienceNb')->findAll();
         $socialNetwork = $em->getRepository('PortfolioLaureBundle:SocialNetwork')->findAll();
         $aboutIntro = $em->getRepository('PortfolioLaureBundle:AboutIntro')->findAll();
 
@@ -39,7 +45,15 @@ class GenerateDataCommand extends ContainerAwareCommand
             $workExperienceCV = new WorkExperienceCV();
             $em->persist($workExperienceCV);
             $em->flush();
-            $this->writeConsole($output,"create cv for workExperince");
+            $this->writeConsole($output,"create cv for workExperience");
+        }
+
+        if( $workExperienceNb == null ) {
+            $workExperienceNb = new WorkExperienceNb();
+            $workExperienceNb->setNumber(4);
+            $em->persist($workExperienceNb);
+            $em->flush();
+            $this->writeConsole($output,"create number for workExpereince");
         }
 
         if( $socialNetwork == null ) {

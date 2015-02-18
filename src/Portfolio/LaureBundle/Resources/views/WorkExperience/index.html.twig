@@ -1,6 +1,7 @@
 {% extends '::baseAdmin.html.twig' %}
 
 {% block content%}
+    {{ render(controller('PortfolioLaureBundle:WorkExperienceNb:index')) }}
     <h4>Liste du Parcours Professionelles</h4>
     <a href="{{ path('workexperience_new') }}">Ajouter un nouveaux parcours</a>
     <table class="medium-12 columns" >
