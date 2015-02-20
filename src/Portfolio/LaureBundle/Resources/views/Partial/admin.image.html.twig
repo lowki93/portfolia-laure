@@ -1,0 +1,10 @@
+{% if image.path is not empty %}
+    <div class="image-content"
+         style="background-image: url('/uploads/portfolio/{{ image.path }}');">
+
+    </div>
+    {#<img src="/uploads/portfolio/{{ image.path }}" />#}
+{% else %}
+    <p>Pas d'image</p>
+{% endif %}
+<a href="{{ path('image_edit', {'id': image.id}) }}">modifier</a>

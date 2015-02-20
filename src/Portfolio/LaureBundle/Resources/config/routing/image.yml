@@ -1,0 +1,8 @@
+image_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PortfolioLaureBundle:Image:edit" }
+
+image_update:
+    path:     /{id}/update
+    defaults: { _controller: "PortfolioLaureBundle:Image:update" }
+    requirements: { _method: post|put }

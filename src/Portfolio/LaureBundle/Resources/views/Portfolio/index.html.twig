@@ -1,33 +1,38 @@
-<div class="row">
-    <h2>PORTFOLIO</h2>
-    <ul class="small-block-grid-2 cover-close">
-        {% for i in 1..4 %}
-            <li {% if i is divisibleby(2) %}class="video"{% endif %}>
-                {% if i is divisibleby(2) %}
-                    <div class="image flex"
-                         style="background-image: url('/bundles/portfoliolaure/images/test/inpulse.png');">
-                        <div class="play flex">
-                            <i class="fa fa-play"></i>
-                        </div>
-                    </div>
-                {% else %}
-                    <img src="{{ asset('bundles/portfoliolaure/images/test/test.png') }}" alt="test" />
-                {% endif %}
-                {% if i%2 == 0 %}
-                    <div class="info information">
-                        <h4>VIDEO</h4>
-                        <p>Impulse <br />Sound System</p>
-                        <p>A video for the exhibition “SAY WATT ? Le culte du Sound System” at La Gaité Lyrique,
-                            Paris - 2nd July to 25th August 2013</p>
-                    </div>
-                {% else %}
-                    <div class="info">
-                        <h3>EDITION</h3>
-                        <p>Rencontres - Livre photographique</p>
-                    </div>
-                {% endif %}
-            </li>
+{% extends '::baseAdmin.html.twig' %}
+
+{% block content -%}
+    <h4>Listes des travaux</h4>
+    <a href="{{ path('portfolio_new') }}">
+        Create a new entry
+    </a>
+    <table class="medium-12 columns">
+        <thead>
+            <tr>
+                <th>Videolinkheader</th>
+                <th>Title</th>
+                <th>Type</th>
+                <th>Description</th>
+                <th>Descriptiondetail</th>
+                <th>Videolink</th>
+                <th>Sitelink</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>{{ entity.videoLinkHeader }}</td>
+                <td>{{ entity.title }}</td>
+                <td>{{ entity.type }}</td>
+                <td>{{ entity.description }}</td>
+                <td>{{ entity.descriptionDetail }}</td>
+                <td>{{ entity.videoLink }}</td>
+                <td>{{ entity.siteLink }}</td>
+                <td>
+                    <a href="{{ path('portfolio_edit', { 'id': entity.id }) }}">edit</a>
+                </td>
+            </tr>
         {% endfor %}
-    </ul>
-    {% include 'PortfolioLaureBundle:Partial:more.button.html.twig' %}
-</div>
+        </tbody>
+    </table>
+{% endblock %}

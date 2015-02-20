@@ -1,0 +1,51 @@
+{% extends '::baseAdmin.html.twig' %}
+
+{% block content -%}
+    <h4>Edition d'un travaux</h4>
+
+    {{ form_start(edit_form) }}
+        <div class="motion print web">
+            {{ form_row(edit_form.portfolioType) }}
+        </div>
+        <div class="imageHeader print web">
+        <ul class="small-block-grid-6 medium-block-grid-6">
+            {% for image in entity.images[:1] %}
+                <li>
+                    {% include 'PortfolioLaureBundle:Partial:admin.image.html.twig' %}
+                </li>
+            {% endfor %}
+        </ul>
+        </div>
+        <div class="motion">
+            {{ form_row(edit_form.videoLinkHeader) }}
+        </div>
+        <div class="print web">
+            {{ form_row(edit_form.title) }}
+        </div>
+        <div class="print web">
+            {{ form_row(edit_form.type) }}
+        </div>
+        <div class="motion print web">
+            {{ form_row(edit_form.description) }}
+        </div>
+        <div class="web">
+            {{ form_row(edit_form.descriptionDetail) }}
+            {{ form_row(edit_form.videoLink) }}
+            {{ form_row(edit_form.siteLink) }}
+        </div>
+        <ul class="small-block-grid-6 medium-block-grid-6">
+            {% for image in entity.images[1:6] %}
+                <li>
+                    {% include 'PortfolioLaureBundle:Partial:admin.image.html.twig' %}
+                </li>
+            {% endfor %}
+        </ul>
+        {{ form_row(edit_form._token) }}
+        <button type="submit">Valider</button>
+    </form>
+
+    <a href="{{ path('portfolio') }}">
+        Back to the list
+    </a>
+    {{ form(delete_form) }}
+{% endblock %}

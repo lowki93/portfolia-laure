@@ -33,3 +33,7 @@ PortfolioLaureBundle_aboutfeeling:
 PortfolioLaureBundle_illustration:
     resource: "@PortfolioLaureBundle/Resources/config/routing/illustration.yml"
     prefix:   /illustration
+
+PortfolioLaureBundle_portfolio:
+    resource: "@PortfolioLaureBundle/Resources/config/routing/portfolio.yml"
+    prefix:   /portfolio

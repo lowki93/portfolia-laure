@@ -1,0 +1,37 @@
+{% extends '::baseAdmin.html.twig' %}
+
+{% block content -%}
+    <h4>Création d'un travaux</h4>
+    {{ form_start(form, { 'attr': {'data-prototype': form_widget(form.images.vars.prototype)|raw } }) }}
+        <div class="motion print web">
+            {{ form_row(form.portfolioType) }}
+        </div>
+        <div class="imageHeader print web"></div>
+        <div class="motion">
+            {{ form_row(form.videoLinkHeader) }}
+        </div>
+        <div class="print web">
+            {{ form_row(form.title) }}
+        </div>
+        <div class="print web">
+            {{ form_row(form.type) }}
+        </div>
+        <div class="motion print web">
+            {{ form_row(form.description) }}
+        </div>
+        <div class="web">
+            {{ form_row(form.descriptionDetail) }}
+            {{ form_row(form.videoLink) }}
+            {{ form_row(form.siteLink) }}
+        </div>
+        <ul class="images row">
+            {% for image in form.images %}
+            {% endfor %}
+        </ul>
+        {{ form_row(form._token) }}
+        <button type="submit">Valider</button>
+    </form>
+    <a href="{{ path('portfolio') }}">
+        Back to the list
+    </a>
+{% endblock %}

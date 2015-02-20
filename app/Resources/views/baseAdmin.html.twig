@@ -43,6 +43,9 @@
                     <li class="not-click">
                         <a href="{{ path("illustration") }}">illustration</a>
                     </li>
+                    <li class="not-click">
+                        <a href="{{ path("portfolio") }}">portfolio</a>
+                    </li>
                     {#<li class="has-dropdown not-click">#}
                         {#<a href="{{ path('workexperience') }}">workexperience</a>#}
                         {#<ul class="dropdown">#}
@@ -61,5 +64,12 @@
         {% block content %}
         {% endblock %}
     </div>
+    {% javascripts
+        'bundles/portfoliolaure/js/jquery/jquery.js'
+        'bundles/portfoliolaure/js/admin.js'
+    %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    {% block javascripts %}{% endblock %}
 </body>
 </html>
