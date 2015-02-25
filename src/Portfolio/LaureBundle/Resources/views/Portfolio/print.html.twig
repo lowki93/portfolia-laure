@@ -1,53 +1,34 @@
-<div class="large-12 columns vimeo-player"
-    {% if work.images[0].path %}
-        style="background-image: url('/uploads/portfolio/{{ work.images[0].path }}');"
-    {% endif %}>
-</div>
-<p class="large-12 columns description">
-    {{ work.portfolioType }}<br />{{ work.description }}
-</p>
+{% include('PortfolioLaureBundle:Partial:portfolio.info.html.twig') %}
 <div class="image-content {{ work.portfolioType }} row">
-    <div class="large-12 columns">
+    <div class="large-12 columns portofolio-image-content">
         <div class="large-6 columns image">
-            <div class="image-color"
-                {% if work.images[1].path %}
-                    style="background-image: url('/uploads/portfolio/{{ work.images[1].path }}');"
-                {% endif %}></div>
+            {% include 'PortfolioLaureBundle:Partial:portfolio.image.html.twig'
+                with { 'image': work.images[1].path } %}
         </div>
         <div class="large-3 columns image">
-            <div class="image-color"
-                {% if work.images[2].path %}
-                    style="background-image: url('/uploads/portfolio/{{ work.images[2].path }}');"
-                {% endif %}></div>
+            {% include 'PortfolioLaureBundle:Partial:portfolio.image.html.twig'
+                with { 'image': work.images[2].path } %}
         </div>
         <div class="large-3 columns image"></div>
     </div>
-    <div class="large-12 columns">
+    <div class="large-12 columns portofolio-image-content">
         <div class="large-3 large-offset-3 columns image">
-            <div class="image-color"
-                {% if work.images[3].path %}
-                    style="background-image: url('/uploads/portfolio/{{ work.images[3].path }}');"
-                {% endif %}></div>
+            {% include 'PortfolioLaureBundle:Partial:portfolio.image.html.twig'
+                with { 'image': work.images[3].path } %}
         </div>
         <div class="large-6 columns image">
-            <div class="image-color"
-                {% if work.images[4].path %}
-                    style="background-image: url('/uploads/portfolio/{{ work.images[4].path }}');"
-                {% endif %}></div>
+            {% include 'PortfolioLaureBundle:Partial:portfolio.image.html.twig'
+                with { 'image': work.images[4].path } %}
         </div>
     </div>
-    <div class="large-12 columns">
+    <div class="large-12 columns portofolio-image-content">
         <div class="large-6 columns second-image">
-            <div class="image-color"
-                {% if work.images[5].path %}
-                    style="background-image: url('/uploads/portfolio/{{ work.images[5].path }}');"
-                {% endif %}></div>
+            {% include 'PortfolioLaureBundle:Partial:portfolio.image.html.twig'
+                with { 'image': work.images[5].path } %}
         </div>
         <div class="large-3 columns image">
-            <div class="image-color"
-                {% if work.images[6].path %}
-                    style="background-image: url('/uploads/portfolio/{{ work.images[6].path }}');"
-                {% endif %}></div>
+            {% include 'PortfolioLaureBundle:Partial:portfolio.image.html.twig'
+                with { 'image': work.images[6].path } %}
         </div>
         <div class="large-3 columns image"></div>
     </div>

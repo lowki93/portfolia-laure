@@ -1,0 +1,44 @@
+{% include('PortfolioLaureBundle:Partial:portfolio.info.html.twig') %}
+<div class="image-content {{ work.portfolioType }} row">
+    <div class="large-12 columns portofolio-image-content">
+        <div class="large-6 columns image">
+             {% include 'PortfolioLaureBundle:Partial:portfolio.image.html.twig'
+                with { 'image': work.images[1].path } %}
+        </div>
+        <div class="large-6 columns description-detail-content image">
+            <div class="large-12 columns description-detail">
+                <p>
+                    {{ work.title }}<br>{{ work.descriptionDetail }}
+                </p>
+                <a target="_blank"href="{{ work.siteLink }}" class="more-button open-cover">
+                    go to the site
+                </a>
+            </div>
+            <div class="large-6 columns image">
+                {% include 'PortfolioLaureBundle:Partial:portfolio.image.html.twig'
+                    with { 'image': work.images[2].path } %}
+            </div>
+        </div>
+    </div>
+    <div class="large-12 columns portofolio-image-content">
+        <div class="large-3 columns"></div>
+        <div class="large-9 columns web-video-player">
+            <iframe src="//player.vimeo.com/video/{{ work.videoLink }}" width="100%" height="100%" frameborder="0"
+                    webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        </div>
+    </div>
+    <div class="large-12 columns portofolio-image-content">
+        <div class="large-6 second-image columns">
+            {% include 'PortfolioLaureBundle:Partial:portfolio.image.html.twig'
+                with { 'image': work.images[3].path } %}
+        </div>
+        <div class="large-3 columns image">
+            {% include 'PortfolioLaureBundle:Partial:portfolio.image.html.twig'
+                with { 'image': work.images[4].path } %}
+        </div>
+        <div class="large-3 columns image">
+            {% include 'PortfolioLaureBundle:Partial:portfolio.image.html.twig'
+                with { 'image': work.images[5].path } %}
+        </div>
+    </div>
+</div>

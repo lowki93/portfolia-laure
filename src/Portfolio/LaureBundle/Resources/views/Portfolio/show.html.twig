@@ -1,27 +1,6 @@
 <div class="row">
     <h2>PORTFOLIO</h2>
     <ul class="small-block-grid-2 cover-close">
-        {#{% for i in 1..4 %}#}
-            {#<li {% if i is divisibleby(2) %}class="video"{% endif %}>#}
-                {#{% if i is divisibleby(2) %}#}
-                    {#<div class="image flex"#}
-                         {#style="background-image: url('/bundles/portfoliolaure/images/test/inpulse.png');">#}
-                        {#<div class="play flex">#}
-                            {#<i class="fa fa-play"></i>#}
-                        {#</div>#}
-                    {#</div>#}
-                {#{% else %}#}
-                    {#<img src="{{ asset('bundles/portfoliolaure/images/test/test.png') }}" alt="test" />#}
-                {#{% endif %}#}
-                {#{% if i%2 == 0 %}#}
-                {#{% else %}#}
-                    {#<div class="info">#}
-                        {#<h3>EDITION</h3>#}
-                        {#<p>Rencontres - Livre photographique</p>#}
-                    {#</div>#}
-                {#{% endif %}#}
-            {#</li>#}
-        {#{% endfor %}#}
         {% for work in works %}
             {% set motion = false %}
             {% if work.portfolioType == 'motion' %}
@@ -30,7 +9,7 @@
             <li {% if motion %}class="video image-vimeo" data-id="{{ work.getIdVideoLinkHeader }}"{% endif %}>
                 <div class="image flex"
                      {% if motion == false %}
-                        style="background-image: url('/uploads/portfolio/{{ work.images[0].path }}');"
+                            style="background-image: url('/uploads/portfolio/{{ work.images[0].path }}');"
                         {% endif %}>
                     {% if motion %}
                         <div class="play flex">
@@ -40,10 +19,14 @@
                 </div>
                 {% if motion %}
                     <div class="info information">
-                        <h4>{{ work.portfolioType }}</h4>
-                        <p>Impulse <br />Sound System</p>
-                        <p>A video for the exhibition “SAY WATT ? Le culte du Sound System” at La Gaité Lyrique,
-                            Paris - 2nd July to 25th August 2013</p>
+                        <h4>{{ work.type }}</h4>
+                        <p>{{ work.title }}</p>
+                        <p>{{ work.description }}</p>
+                    </div>
+                {% else %}
+                    <div class="info">
+                        <h3>{{ work.type }}</h3>
+                        <p>{{ work.description }}</p>
                     </div>
                 {% endif %}
             </li>

@@ -8,6 +8,7 @@
     <table class="medium-12 columns">
         <thead>
             <tr>
+                <th>Work Type</th>
                 <th>Videolinkheader</th>
                 <th>Title</th>
                 <th>Type</th>
@@ -21,6 +22,7 @@
         <tbody>
         {% for entity in entities %}
             <tr>
+                <td>{{ entity.portfolioType }}</td>
                 <td>{{ entity.videoLinkHeader }}</td>
                 <td>{{ entity.title }}</td>
                 <td>{{ entity.type }}</td>
