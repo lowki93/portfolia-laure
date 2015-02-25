@@ -116,7 +116,11 @@ class Portfolio
      */
     public function getVideoLinkHeader()
     {
-        return 'https://vimeo.com/'.$this->videoLinkHeader;
+        if (!empty($this->videoLinkHeader)) {
+            return 'https://vimeo.com/'.$this->videoLinkHeader;
+        } else {
+            return $this->videoLinkHeader;
+        }
     }
 
     public function getIdVideoLinkHeader()
@@ -224,7 +228,9 @@ class Portfolio
      */
     public function setVideoLink($videoLink)
     {
-        $this->videoLink = $videoLink;
+
+        $pieces = explode("/", $videoLink);
+        $this->videoLink = $pieces[count($pieces) - 1];
 
         return $this;
     }
@@ -236,7 +242,11 @@ class Portfolio
      */
     public function getVideoLink()
     {
-        return $this->videoLink;
+        if (!empty($this->videoLinkHeader)) {
+            return 'https://vimeo.com/'.$this->videoLink;
+        } else {
+            return $this->videoLink;
+        }
     }
 
     /**

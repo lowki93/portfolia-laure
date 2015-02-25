@@ -74,7 +74,9 @@ class ImageController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('image_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('portfolio_edit', array(
+                'id' => $entity->getPortfolio()->getId()
+            )));
         }
 
         return $this->render('PortfolioLaureBundle:Image:edit.html.twig', array(
