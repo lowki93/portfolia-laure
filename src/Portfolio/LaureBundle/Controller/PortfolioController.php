@@ -101,10 +101,10 @@ class PortfolioController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-//        $entity = $em->getRepository('PortfolioLaureBundle:Portfolio')->find($id);
+        $works = $em->getRepository('PortfolioLaureBundle:Portfolio')->findAll();
 
         return $this->render('PortfolioLaureBundle:Portfolio:show.html.twig', array(
-//            'entity'      => $entity,
+            'works'      => $works
         ));
     }
 
@@ -170,10 +170,6 @@ class PortfolioController extends Controller
 
         if ($editForm->isValid()) {
 
-            foreach($entity->getImages() as $image) {
-                $image->setProduct($entity);
-                $em->persist($image);
-            }
             $em->flush();
 
             return $this->redirect($this->generateUrl('portfolio_edit', array('id' => $id)));

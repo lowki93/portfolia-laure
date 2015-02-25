@@ -103,7 +103,8 @@ class Portfolio
      */
     public function setVideoLinkHeader($videoLinkHeader)
     {
-        $this->videoLinkHeader = $videoLinkHeader;
+        $pieces = explode("/", $videoLinkHeader);
+        $this->videoLinkHeader = $pieces[count($pieces) - 1];
 
         return $this;
     }
@@ -114,6 +115,11 @@ class Portfolio
      * @return string 
      */
     public function getVideoLinkHeader()
+    {
+        return 'https://vimeo.com/'.$this->videoLinkHeader;
+    }
+
+    public function getIdVideoLinkHeader()
     {
         return $this->videoLinkHeader;
     }
