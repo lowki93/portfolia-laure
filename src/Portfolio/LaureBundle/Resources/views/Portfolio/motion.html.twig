@@ -1,0 +1,53 @@
+<div class="large-12 columns vimeo-player">
+    <iframe src="//player.vimeo.com/video/57335852" width="100%" height="100%" frameborder="0"
+            webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+</div>
+<p class="large-12 columns description">
+    {{ work.portfolioType }}<br />{{ work.description }}
+</p>
+<div class="image-content {{ work.portfolioType }} row">
+    <div class="large-12 columns">
+        <div class="large-6 columns image">
+            <div class="image-color"
+                {% if work.images[1].path %}
+                    style="background-image: url('/uploads/portfolio/{{ work.images[1].path }}');"
+                {% endif %}></div>
+        </div>
+        <div class="large-3 columns image">
+            <div class="image-color"
+                {% if work.images[2].path %}
+                    style="background-image: url('/uploads/portfolio/{{ work.images[2].path }}');"
+                {% endif %}></div>
+        </div>
+        <div class="large-3 columns image"></div>
+    </div>
+    <div class="large-12 columns">
+        <div class="large-3 columns image"></div>
+        <div class="large-3 columns image">
+            <div class="image-color"
+                {% if work.images[3].path %}
+                    style="background-image: url('/uploads/portfolio/{{ work.images[3].path }}');"
+                {% endif %}></div>
+        </div>
+        <div class="large-6 columns second-image">
+            <div class="image-color"
+                {% if work.images[4].path %}
+                    style="background-image: url('/uploads/portfolio/{{ work.images[4].path }}');"
+                {% endif %}></div>
+        </div>
+    </div>
+    <div class="large-12 columns">
+        <div class="large-6 large-offset-3 image columns">
+            <div class="image-color"
+                {% if work.images[5].path %}
+                    style="background-image: url('/uploads/portfolio/{{ work.images[5].path }}');"
+                {% endif %}></div>
+        </div>
+        <div class="large-3 columns image">
+            <div class="image-color"
+                {% if work.images[6].path %}
+                    style="background-image: url('/uploads/portfolio/{{ work.images[6].path }}');"
+                {% endif %}></div>
+        </div>
+    </div>
+</div>

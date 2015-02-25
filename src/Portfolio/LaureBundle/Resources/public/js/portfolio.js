@@ -1,15 +1,26 @@
 $(document).ready(function($){
 
-    var portfolioList = $('.portfolio ul li');
+    var portfolio = {
+        list : $('.portfolio ul li'),
+        imageFirstLarge12 : $('.image-content .large-12:first-child .large-6'),
+        carouselFirstMotion : $('.image-content.motion .large-12:first-child .large-3'),
+        carouselSecondMotion : $('.image-content.motion .large-12:last-child .large-3'),
+        carouselFirstPrint : $('.image-content.print .large-12:first-child .large-3'),
+        carousel : $('#carousel-portfolio.carousel'),
+        carouselItem : $('#carousel-portfolio .item'),
+        carouselContent : $('#carousel-portfolio .carousel-inner')
+    };
     var illustration = {
         item : $('.illustration-content ul li'),
         large6 : $('.illustration .large-6'),
         second : $('.illustration .secondIllustration'),
         large3inside : $('.illustration .large-3.end .second'),
         large3End : $('.illustration .large-3.end'),
-        carousel : $('.carousel'),
-        list : $('  .illustration-content'),
-        image : $('.imageIllustration')
+        carousel : $('#carousel-illustration.carousel'),
+        list : $('.illustration-content'),
+        image : $('.imageIllustration'),
+        carouselItem : $('#carousel-illustration .item'),
+        carouselContent : $('#carousel-illustration .carousel-inner')
     };
     var aboutCircle = $('.about div.circle');
     var contact = {
@@ -17,10 +28,6 @@ $(document).ready(function($){
         input : $( ".contact input" ),
         textPrefix : $('.contact .text .prefix'),
         imputName : ''
-    };
-    var carousel = {
-        item : $('.carousel .item'),
-        content : $('.carousel-inner')
     };
 
     $('#nav ul li a[href*=#]').click(function() {
@@ -39,9 +46,55 @@ $(document).ready(function($){
     });
 
     // For Portfolio
-    portfolioList.height(portfolioList.width() * 0.96);
-    $.each( $('.portfolio ul li.video'), function(){
+    portfolio.list.height(portfolio.list.width() * 0.96);
+    $.each( portfolio.list, function(){
         $(this).find('.image').height( $(this).height() - $(this).find('.information').height());
+    });
+    $.each( $('.image-vimeo'), function(){
+
+        var id = $(this).attr("data-id");var url = "http://vimeo.com/api/v2/video/" + id + ".json?callback=showThumb";
+        var $content = $(this).find('.image');
+
+        $.ajax({
+            type:'GET',
+            url: 'http://vimeo.com/api/v2/video/' + id + '.json',
+            jsonp: 'callback',
+            dataType: 'jsonp',
+            success: function(data){
+
+                var thumbnail_src = data[0].thumbnail_large;
+                $content.css('background-image', 'url("' + thumbnail_src + '")');
+
+            }
+        });
+
+    });
+
+    // carousel portfolio
+    $.each( $('.carousel-works .image'), function(){
+        $(this).height( $(this).width() );
+    });
+    $.each( $('.carousel-works .second-image'), function(){
+        $(this).height( $(this).parent().find('.large-3').width() );
+    });
+    portfolio.carouselFirstMotion
+        .css("margin-top", portfolio.imageFirstLarge12.height() - portfolio.carouselFirstMotion.height() );
+    portfolio.carouselSecondMotion
+        .css("margin-top", $('.image-content .large-12:last-child .large-6').height() - portfolio.carouselSecondMotion.height() );
+
+    portfolio.carouselFirstPrint
+        .css("margin-top", portfolio.imageFirstLarge12.height() - portfolio.carouselFirstPrint.height() );
+
+    var countCarousel = 0;
+    $.each( $('.carousel-works'), function(){
+        $(this).detach().appendTo(portfolio.carouselContent.find('[data-slide="'+countCarousel+'"]'));
+        ++countCarousel;
+    });
+
+    portfolio.carousel.carousel({
+        interval: false
+    }).on('slide.bs.carousel', function () {
+
     });
 
     // For Illustration
@@ -49,8 +102,10 @@ $(document).ready(function($){
     illustration.large6.height(illustration.large6.width());
     illustration.large3End.height(illustration.large6.width());
     illustration.second.height(illustration.large6.height());
-    $('.illustration .secondIllustration .imageIllustration').height(illustration.second.height() - $('.illustration .secondIllustration .information').height() - 20 );
-    $('.illustration .second:last-child').css("margin-top", illustration.large6.height() - (illustration.large3inside.height() * 2) );
+    $('.illustration .secondIllustration .imageIllustration')
+        .height(illustration.second.height() - $('.illustration .secondIllustration .information').height() - 20 );
+    $('.illustration .second:last-child')
+        .css("margin-top", illustration.large6.height() - (illustration.large3inside.height() * 2) );
     $('.illustration .cover-close').height( illustration.large6.height() + 20);
 
     illustration.carousel.carousel({
@@ -90,12 +145,21 @@ $(document).ready(function($){
     illustration.image.click( function() {
 
         var id = $(this).attr('data-id');
-        carousel.content.find('[data-slide="'+id+'"]').addClass('active');
+        illustration.carouselContent.find('[data-slide="'+id+'"]').addClass('active');
         illustration.carousel.show();
         illustration.list.hide();
 
-        carousel.item.width(carousel.item.width());
+        illustration.carouselItem.width(illustration.carouselItem.width());
         $('.carousel img').magnify();
+
+    });
+
+    portfolio.list.click( function() {
+
+        var id = $(this).index();
+        portfolio.carouselContent.find('[data-slide="'+id+'"]').addClass('active');
+        portfolio.carousel.show();
+        portfolio.list.hide();
 
     });
 

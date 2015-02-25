@@ -1,33 +1,76 @@
 <div class="row">
     <h2>PORTFOLIO</h2>
     <ul class="small-block-grid-2 cover-close">
-        {% for i in 1..4 %}
-            <li {% if i is divisibleby(2) %}class="video"{% endif %}>
-                {% if i is divisibleby(2) %}
-                    <div class="image flex"
-                         style="background-image: url('/bundles/portfoliolaure/images/test/inpulse.png');">
+        {#{% for i in 1..4 %}#}
+            {#<li {% if i is divisibleby(2) %}class="video"{% endif %}>#}
+                {#{% if i is divisibleby(2) %}#}
+                    {#<div class="image flex"#}
+                         {#style="background-image: url('/bundles/portfoliolaure/images/test/inpulse.png');">#}
+                        {#<div class="play flex">#}
+                            {#<i class="fa fa-play"></i>#}
+                        {#</div>#}
+                    {#</div>#}
+                {#{% else %}#}
+                    {#<img src="{{ asset('bundles/portfoliolaure/images/test/test.png') }}" alt="test" />#}
+                {#{% endif %}#}
+                {#{% if i%2 == 0 %}#}
+                {#{% else %}#}
+                    {#<div class="info">#}
+                        {#<h3>EDITION</h3>#}
+                        {#<p>Rencontres - Livre photographique</p>#}
+                    {#</div>#}
+                {#{% endif %}#}
+            {#</li>#}
+        {#{% endfor %}#}
+        {% for work in works %}
+            {% set motion = false %}
+            {% if work.portfolioType == 'motion' %}
+                {% set motion = true %}
+            {% endif %}
+            <li {% if motion %}class="video image-vimeo" data-id="{{ work.getIdVideoLinkHeader }}"{% endif %}>
+                <div class="image flex"
+                     {% if motion == false %}
+                        style="background-image: url('/uploads/portfolio/{{ work.images[0].path }}');"
+                        {% endif %}>
+                    {% if motion %}
                         <div class="play flex">
                             <i class="fa fa-play"></i>
                         </div>
-                    </div>
-                {% else %}
-                    <img src="{{ asset('bundles/portfoliolaure/images/test/test.png') }}" alt="test" />
-                {% endif %}
-                {% if i%2 == 0 %}
+                    {% endif %}
+                </div>
+                {% if motion %}
                     <div class="info information">
-                        <h4>VIDEO</h4>
+                        <h4>{{ work.portfolioType }}</h4>
                         <p>Impulse <br />Sound System</p>
                         <p>A video for the exhibition “SAY WATT ? Le culte du Sound System” at La Gaité Lyrique,
                             Paris - 2nd July to 25th August 2013</p>
-                    </div>
-                {% else %}
-                    <div class="info">
-                        <h3>EDITION</h3>
-                        <p>Rencontres - Livre photographique</p>
                     </div>
                 {% endif %}
             </li>
         {% endfor %}
     </ul>
+    {% for work in works %}
+        <div class="carousel-works">
+            {% include 'PortfolioLaureBundle:Portfolio:%s.html.twig' | format(work.portfolioType) %}
+        </div>
+    {% endfor %}
+    <div id="carousel-portfolio" class="carousel slide rowMarginLess">
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            {% for work in works %}
+                <div class="item" data-slide="{{ loop.index - 1 }}">
+                </div>
+            {% endfor %}
+        </div>
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-portfolio" role="button" data-slide="prev">
+            {#<span class="glyphicon glyphicon-chevron-left"></span>#}
+            left
+        </a>
+        <a class="right carousel-control" href="#carousel-portfolio" role="button" data-slide="next">
+            {#<span class="glyphicon glyphicon-chevron-right"></span>#}
+            right
+        </a>
+    </div>
     {% include 'PortfolioLaureBundle:Partial:more.button.html.twig' %}
 </div>
