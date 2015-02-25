@@ -27,6 +27,10 @@ $(document).ready(function($){
         carouselContent : $('#carousel-illustration .carousel-inner')
     };
     var aboutCircle = $('.about div.circle');
+    var workExperience = {
+        first : $('.workExperience div.medium-6:first-child'),
+        last : $('.workExperience div.medium-6:last-child')
+    };
     var contact = {
         textarea : $('.contact textarea'),
         input : $( ".contact input" ),
@@ -133,7 +137,13 @@ $(document).ready(function($){
 
     // For About
     aboutCircle.height(aboutCircle.width() - 20);
-    $('.workExperience div.medium-6:first-child').height($('.workExperience div.medium-6:last-child').height());
+    workExperience.first.height(workExperience.last.height());
+
+    workExperience.first
+        .css( 'margin-top', ( workExperience.last.height() +
+            parseInt(workExperience.last.css("padding-top").replace("px", "")) +
+            parseInt(workExperience.last.css('padding-bottom').replace("px", "")) -
+            workExperience.first.height()) / 2);
 
     // For Contact
     contact.textPrefix.height(contact.textarea.height() + 16);
