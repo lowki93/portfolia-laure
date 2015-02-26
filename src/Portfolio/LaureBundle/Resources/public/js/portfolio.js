@@ -108,6 +108,7 @@ $(document).ready(function($){
 
     var countCarousel = 0;
     $.each( $('.carousel-works'), function(){
+        portfolio.carouselItem.width($(this).width());
         $(this).detach().appendTo(portfolio.carouselContent.find('[data-slide="'+countCarousel+'"]'));
         ++countCarousel;
     });
@@ -186,7 +187,7 @@ $(document).ready(function($){
         var id = $(this).index();
         portfolio.carouselContent.find('[data-slide="'+id+'"]').addClass('active');
         portfolio.carousel.show();
-        portfolio.list.hide();
+        $('.portfolio ul').hide();
 
     });
 
