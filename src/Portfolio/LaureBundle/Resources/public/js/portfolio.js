@@ -138,7 +138,6 @@ $(document).ready(function($){
 
     // For About
     aboutCircle.height(aboutCircle.width() - 20);
-    workExperience.first.height(workExperience.last.height());
 
     workExperience.first
         .css( 'margin-top', ( workExperience.last.height() +
@@ -149,26 +148,36 @@ $(document).ready(function($){
     // For Contact
     contact.textPrefix.height(contact.textarea.height() + 16);
     contact.input.focusin(function() {
+
         contact.imputName = $(this).attr("class");
-        $('.contact .'+contact.imputName+' .prefix').addClass('border');
+        $(this).parent().parent().parent().find('.row').addClass('border');
+        //$('.contact .'+contact.imputName+' .prefix').addClass('border');
     });
 
     contact.textarea.focusin(function() {
         contact.imputName = $(this).attr("class");
-        $('.contact .'+contact.imputName+' .prefix').addClass('border');
+        $(this).parent().parent().parent().find('.row').addClass('border');
     });
 
     contact.textarea.focusout(function() {
-        $('.contact .'+contact.imputName+' .prefix').removeClass("border");
+        $('.contact .'+contact.imputName+' .row').removeClass("border");
     });
 
     contact.input.focusout(function() {
-        $('.contact .'+contact.imputName+' .prefix').removeClass("border");
+        $('.contact .'+contact.imputName+' .row').removeClass("border");
     });
 
     contact.textarea.bind('mouseup mousemove', function() {
         contact.textPrefix.height($(this).height() + 16);
     });
+
+    contact.textarea.on("input",function(){
+        $(this).height("auto").height($(this)[0].scrollHeight);
+    });
+
+    function resizeTextArea($element) {
+        $element.height($element[0].scrollHeight);
+    }
 
     illustration.image.click( function() {
 
@@ -177,7 +186,7 @@ $(document).ready(function($){
         illustration.carousel.show();
         illustration.list.hide();
 
-        illustration.carouselItem.width(illustration.carouselItem.width());
+        illustration.carouselItem.width($('#carousel-illustration').width());
         $('.carousel img').magnify();
 
     });
@@ -200,6 +209,17 @@ $(document).ready(function($){
             scrollTarget: url
 
         });
+
+        switch(url) {
+            case '#portfolio':
+                $('.portfolio ul').show();
+                portfolio.carousel.hide();
+                break;
+            case '#illustration':
+                illustration.list.show();
+                illustration.carousel.hide();
+                break;
+        }
 
     };
 

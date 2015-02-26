@@ -242,11 +242,16 @@ class Portfolio
      */
     public function getVideoLink()
     {
-        if (!empty($this->videoLinkHeader)) {
+        if (!empty($this->videoLink)) {
             return 'https://vimeo.com/'.$this->videoLink;
         } else {
             return $this->videoLink;
         }
+    }
+
+    public function getIdVideoLink()
+    {
+        return $this->videoLink;
     }
 
     /**

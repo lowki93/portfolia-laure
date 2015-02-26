@@ -36,9 +36,10 @@
         <ul class="small-block-grid-6 medium-block-grid-6">
             {% for image in entity.images[1:6] %}
                 <li>
+                    Image {{ loop.index }}
                     {% include 'PortfolioLaureBundle:Partial:admin.image.html.twig' %}
                 </li>
-            {% endfor %}
+            {% endfor %}a
         </ul>
         {{ form_row(edit_form._token) }}
         <button type="submit">Valider</button>

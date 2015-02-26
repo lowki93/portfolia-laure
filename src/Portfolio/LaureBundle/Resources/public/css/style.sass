@@ -40,7 +40,6 @@ header
       li
         padding:
           left: 10px
-          right: 10px
         font-size: 14px
 
 .scroll-area
@@ -216,7 +215,7 @@ header
     color: $otherLightGrey
     text-align: center
     font-size: 16px
-    line-height: 40px
+    line-height: 30px
     margin-bottom: 40px
   .circle-content
     text-align: center
@@ -226,6 +225,10 @@ header
       border-radius: 50%
       display: inline-block
       width: 16%
+      margin:
+        right: 20px
+      &:last-child
+        margin-right: 0
       div
         width: 100%
         height: 100%
@@ -354,6 +357,12 @@ header
     line-height: 30px
   form
     margin-bottom: 80px
+    .large-12.text
+      margin:
+        top: 20px
+        bottom: 20px
+    .row
+      border: 1px solid $grey
     i
       margin:
         top: 5px
@@ -361,27 +370,27 @@ header
     .prefix
       font-size: 20px
     span
-      border-right: none
+      border: none
       color: $red
       background-color: $white
     input
-      border-left: none
+      border: none
       box-shadow: none
+      margin-bottom: 0
       &:focus
-        border: 1px solid $red
-        border-left: none
+        border: none
         box-shadow: none
         background-color: $white
     .text
       .prefix
-        border-right: none
+        border: none
         background-color: $white
       textarea
-        border-left: none
+        border: none
         background-color: $white
         box-shadow: none
+        margin-bottom: 0
         &:focus
-          border: 1px solid $red
           border-left: none
           box-shadow: none
           background-color: $white

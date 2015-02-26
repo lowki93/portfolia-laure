@@ -28,11 +28,11 @@ jQuery(document).ready(function() {
         var prototype = $('form').data('prototype');
         var index = $collection.data('index') + 1;
         var newForm = prototype.replace(/__name__/g, index);
-        $collection.data('index', index + 1);
+        $collection.data('index', index);
 
         var $newFormLi;
         if ($collection == $collectionHolder) {
-            $newFormLi = $('<li class="large-4 columns"></li>').append(newForm);
+            $newFormLi = $('<li class="large-4 columns">Image '+index+'</li>').append(newForm);
         } else {
             $newFormLi = newForm;
         }
