@@ -177,6 +177,7 @@ $(document).ready(function($){
         illustration.carousel.show();
         illustration.list.hide();
 
+        illustration.carouselItem.width(illustration.carouselItem.width());
         $('.carousel img').magnify();
 
     });
