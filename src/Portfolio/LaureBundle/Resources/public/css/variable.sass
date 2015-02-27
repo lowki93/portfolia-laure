@@ -34,6 +34,11 @@ $carouselWidth: 700px
     content: ''
     clear: both
 
+*:focus
+  outline-style: none
+  box-shadow: none
+  border-color: transparent
+
 h2
   font-size: 16px
   color: $lightBlack
@@ -68,6 +73,9 @@ h4
   border: 2px solid $red
   padding: 10px
   border-radius: 5px
+  &:active,&:visited
+    color: $red
+    border: 2px solid $red
   &:hover
     color: #fff
     border: 2px solid #fff
@@ -88,9 +96,6 @@ h4
 
 .cover-close
   overflow: hidden
-
-a:hover
-  color: $white
 
 .shadow
   -moz-box-shadow: 5px 5px 5px 0px $grey
