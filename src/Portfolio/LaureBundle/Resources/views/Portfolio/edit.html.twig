@@ -2,7 +2,9 @@
 
 {% block content -%}
     <h4>Edition d'un travaux</h4>
-
+    <a href="{{ path('portfolio') }}">
+        Back to the list
+    </a>
     {{ form_start(edit_form) }}
         <div class="motion print web">
             {{ form_row(edit_form.portfolioType) }}
@@ -39,14 +41,10 @@
                     Image {{ loop.index }}
                     {% include 'PortfolioLaureBundle:Partial:admin.image.html.twig' %}
                 </li>
-            {% endfor %}a
+            {% endfor %}
         </ul>
         {{ form_row(edit_form._token) }}
         <button type="submit">Valider</button>
     </form>
-
-    <a href="{{ path('portfolio') }}">
-        Back to the list
-    </a>
-    {{ form(delete_form) }}
+    <a href="{{ path('portfolio_delete', {'id': entity.id}) }}" class="button alert">Supprimer</a>
 {% endblock %}
