@@ -7,28 +7,30 @@
                 {% set motion = true %}
             {% endif %}
             <li {% if motion %}class="video image-vimeo" data-id="{{ work.getIdVideoLinkHeader }}"{% endif %}>
-                <div class="image flex"
-                     {% if motion == false %}
-                            style="background-image: url('/uploads/portfolio/{{ work.images[0].path }}');"
-                        {% endif %}>
+                <div class="shadow">
+                    <div class="image flex"
+                         {% if motion == false %}
+                                style="background-image: url('/uploads/portfolio/{{ work.images[0].path }}');"
+                            {% endif %}>
+                        {% if motion %}
+                            <div class="play flex">
+                                <i class="fa fa-play"></i>
+                            </div>
+                        {% endif %}
+                    </div>
                     {% if motion %}
-                        <div class="play flex">
-                            <i class="fa fa-play"></i>
+                        <div class="info information">
+                            <h4>{{ work.type }}</h4>
+                            <p>{{ work.title }}</p>
+                            <p>{{ work.description }}</p>
+                        </div>
+                    {% else %}
+                        <div class="info">
+                            <h3>{{ work.type }}</h3>
+                            <p>{{ work.description }}</p>
                         </div>
                     {% endif %}
                 </div>
-                {% if motion %}
-                    <div class="info information">
-                        <h4>{{ work.type }}</h4>
-                        <p>{{ work.title }}</p>
-                        <p>{{ work.description }}</p>
-                    </div>
-                {% else %}
-                    <div class="info">
-                        <h3>{{ work.type }}</h3>
-                        <p>{{ work.description }}</p>
-                    </div>
-                {% endif %}
             </li>
         {% endfor %}
     </ul>

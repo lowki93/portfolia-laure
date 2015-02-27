@@ -54,7 +54,7 @@ $(document).ready(function($){
     });
 
     // For Portfolio
-    portfolio.list.height(portfolio.list.width() * 0.96);
+    $('.portfolio ul li .shadow').height(Math.round(portfolio.list.width() * 0.96));
     $.each( portfolio.list, function(){
         $(this).find('.image').height( $(this).height() - $(this).find('.information').height());
     });

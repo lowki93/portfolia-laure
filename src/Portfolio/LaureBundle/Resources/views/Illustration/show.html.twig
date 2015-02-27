@@ -35,9 +35,11 @@
                     <li class="{{ class }} columns">
                 {% endif %}
                     {% if class == "large-3 end last" or class == 'large-3 end'%}
-                        <div class="second">
+                        <div class="second shadow">
+                    {% elseif class == 'large-3 secondIllustration' %}
+                        <div class="shadow">
                     {% endif %}
-                        <div class="imageIllustration"
+                        <div class="imageIllustration {% if class == 'large-6' %}shadow{% endif %}"
                              data-id="{{ loop.index - 1 }}"
                              style="background-image: url('/uploads/illustration/{{ illustration.path }}');">
                         </div>
@@ -50,7 +52,11 @@
                                 {% endif %}
                             </div>
                         {% endif %}
-                    {% if class == "large-3 end last" or class == 'large-3 end'%}</div>{% endif %}
+                    {% if class == "large-3 end last" or class == 'large-3 end'%}
+                        </div>
+                    {% elseif class == 'large-3 secondIllustration' %}
+                        </div>
+                    {% endif %}
                 {% if class != 'large-3 end' %}
                     </li>
                 {% endif %}
