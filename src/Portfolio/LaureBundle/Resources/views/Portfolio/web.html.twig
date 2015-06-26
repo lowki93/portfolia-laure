@@ -1,5 +1,5 @@
 {% include('PortfolioLaureBundle:Partial:portfolio.info.html.twig') %}
-<div class="image-content {{ work.portfolioType }} row">
+<div class="image-content {{ work.portfolioType }} row" xmlns="http://www.w3.org/1999/html">
     <div class="large-12 columns portofolio-image-content">
         <div class="large-6 columns image">
              {% include 'PortfolioLaureBundle:Partial:portfolio.image.html.twig'
@@ -8,7 +8,7 @@
         <div class="large-6 columns description-detail-content image">
             <div class="large-12 columns description-detail">
                 <p>
-                    {{ work.title }}<br>{{ work.descriptionDetail }}
+                    {{ work.title }}<br></span>{{ work.descriptionDetail }}</span>
                 </p>
                 <a target="_blank"href="{{ work.siteLink }}" class="more-button open-cover">
                     go to the site
