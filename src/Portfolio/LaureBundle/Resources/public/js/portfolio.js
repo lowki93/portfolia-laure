@@ -1,7 +1,7 @@
 $(document).ready(function($){
 
     var portfolio = {
-        list : $('.portfolio ul li'),
+        list : $('.portfolio ul li .shadow'),
         imageFirstLarge12 : $('.image-content .large-12:first-child .large-6'),
         carouselFirstMotion : $('.image-content.motion .large-12:first-child .large-3'),
         carouselSecondMotion : $('.image-content.motion .large-12:last-child .large-3'),
@@ -54,7 +54,7 @@ $(document).ready(function($){
     });
 
     // For Portfolio
-    $('.portfolio ul li .shadow').height(Math.round(portfolio.list.width() * 0.96));
+    portfolio.list.height(Math.round(portfolio.list.width() * 0.96));
     $.each( portfolio.list, function(){
         $(this).find('.image').height( $(this).height() - $(this).find('.information').height());
     });

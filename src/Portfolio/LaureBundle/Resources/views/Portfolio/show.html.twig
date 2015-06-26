@@ -7,8 +7,9 @@
                 {% set motion = true %}
             {% endif %}
             <li {% if motion %}class="video image-vimeo" data-id="{{ work.getIdVideoLinkHeader }}"{% endif %}>
-                <div class="shadow">
-                    <div class="image flex"
+                {#<div class="shadow">#}
+                <div>
+                    <div class="image shadow flex"
                          {% if motion == false %}
                                 style="background-image: url('/uploads/portfolio/{{ work.images[0].path }}');"
                             {% endif %}>
@@ -55,5 +56,7 @@
             <span class="arrow-right"></span>
         </a>
     </div>
-    {% include 'PortfolioLaureBundle:Partial:more.button.html.twig' %}
+    {% if works|length > 4 %}
+        {% include 'PortfolioLaureBundle:Partial:more.button.html.twig' %}
+    {% endif %}
 </div>

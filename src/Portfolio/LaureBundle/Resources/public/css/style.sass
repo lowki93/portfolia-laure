@@ -32,15 +32,21 @@ header
       a
         +futura(medium)
         color: $white
+        &:hover
+          color: $white
     &.logo
       li
-        a
-          font-size: 24px
+        img
+          width: 95px
     &.nav
       li
         padding:
           left: 10px
         font-size: 14px
+        a
+          display: block
+          &:hover
+            background: url('../images/active.png') center 42px no-repeat
 
 .scroll-area
   position: relative
@@ -70,7 +76,8 @@ header
   background-color: $darkWhite
   +futura(medium)
   ul
-    height: 960px
+    height: 970px
+    margin-bottom: 50px
     li
       border-radius: 5px
       position: relative
@@ -94,16 +101,23 @@ header
         height: auto
         bottom: 20px
         padding: 10px
+        h3, h4
+          +futura(medium)
+          text-transform: uppercase
         p
+          +futura(light)
           margin: 0
           color: #ffffff
           font-size: 24px
         &.information
           background-color: $white
+          border-radius: 0 0 5px 5px
           p
             color: $darkGrey
             font-size: 16px
+            +futura(medium)
             &:last-child
+              +futura(light)
               font-size: 12px
   .carousel
     display: none
@@ -121,10 +135,13 @@ header
     background-position: center center
     padding: 0
   .description
+    +futura(medium)
     text-align: center
     margin:
       top: 20px
       bottom: 20px
+    span
+      +futura(light)
   .carousel-works
     .portofolio-image-content
       padding: 0
@@ -234,11 +251,14 @@ header
         width: 100%
         height: 100%
         p
+          +futura(light)
           color: $otherLightGrey
           font-size: 40px
           line-height: 20px
           margin: 0
           span
+            text-transform: uppercase
+            +futura(medium)
             color: $lightGrey
             font-size: 16px
 .workExperience

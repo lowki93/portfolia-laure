@@ -11,7 +11,7 @@ $darkBlack: #545454
 $white: #ffffff
 $lightWhite: #fbfbfb
 $darkWhite: #f5f5f5
-$red: #fd685b
+$red: #ebd184
 $lightGrey: #999999
 $otherLightGrey: #666666
 $grey: #cccccc
@@ -26,7 +26,9 @@ $carouselWidth: 700px
 
 =futura($weight)
   @if $weight == medium
-    font-family: 'futura'
+    font-family: 'Montserrat'
+  @if $weight == light
+    font-family: 'Montserrat-Light'
 
 .rowMarginLess
   &:after
@@ -69,17 +71,17 @@ h4
     bottom: 50px
 .more-button
   font-size: 16px
-  color: $red
-  border: 2px solid $red
+  color: $black
+  border: 2px solid $black
   padding: 10px
   border-radius: 5px
   &:active,&:visited
-    color: $red
-    border: 2px solid $red
+    color: $black
+    border: 2px solid $black
   &:hover
     color: #fff
     border: 2px solid #fff
-    background-color: $red
+    background-color: $black
 
 .border
   border: 1px solid $red !important
