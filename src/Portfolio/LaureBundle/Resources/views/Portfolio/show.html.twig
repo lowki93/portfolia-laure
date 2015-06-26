@@ -21,7 +21,7 @@
                     {% if motion %}
                         <div class="info information">
                             <h4>{{ work.type }}</h4>
-                            <p>{{ work.title }}</p>
+                            <p>{{ work.title|nl2br }}</p>
                             <p>{{ work.description }}</p>
                         </div>
                     {% else %}

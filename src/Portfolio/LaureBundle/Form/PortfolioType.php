@@ -23,7 +23,7 @@ class PortfolioType extends AbstractType
                 ))
             )
             ->add('videoLinkHeader')
-            ->add('title')
+            ->add('title', 'textarea', array('attr' => array('rows' => '10','cols' => '1')))
             ->add('type')
             ->add('description')
             ->add('descriptionDetail')
