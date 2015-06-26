@@ -17,12 +17,17 @@
             {% endstylesheets %}
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
     </head>
     <body>
         <header>
             <div id="nav" class="row">
                 <ul class="logo medium-3 columns">
-                    <li><a href="#homepage">LAURE M. JOY</a></li>
+                    <li>
+                        <a href="#homepage">
+                            <img src="{{ asset('bundles/portfoliolaure/images/logo/logo.png') }}" alt="logo">
+                        </a>
+                    </li>
                 </ul>
                 <ul class="nav medium-7 columns">
                     <li><a href="#portfolio">PORTFOLIO</a></li>
