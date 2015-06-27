@@ -210,7 +210,7 @@ class WorkExperienceController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('Workexperience'));
+        return $this->redirect($this->generateUrl('workexperience'));
     }
 
     /**
