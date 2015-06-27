@@ -179,9 +179,13 @@ header
           &.large-3
             .second
               width: 100%
+          &.large-3.secondIllustration
+            .imageIllustration
+              border-radius: 5px 5px 0 0
           &.large-6
             position: relative
             .infoIllustration
+              +futura(medium)
               position: absolute
               bottom: 0
               padding: 10px
@@ -194,13 +198,18 @@ header
             margin:
               top: 40px
         .information
+          +futura(medium)
           padding: 10px
           background-color: $white
+          border-radius: 0 0 5px 5px
+          h3
+            color: $lightGrey
           p
             color: $darkGrey
             &:first-child
               font-size: 16px
             &:last-child
+              +futura(light)
               font-size: 12px
     .carousel
       display: none
@@ -215,11 +224,14 @@ header
               display: inline-block
               color: $lightBlack
               text-align: left
+              +futura(medium)
               h3
                 color: $lightBlack
               p
                 font-size: 24px
                 width: 40%
+                &:last-child
+                  +futura(light)
       .carousel-control
         background-image: none
         top: 50%

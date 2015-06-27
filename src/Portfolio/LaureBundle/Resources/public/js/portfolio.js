@@ -130,6 +130,8 @@ $(document).ready(function($){
         .css("margin-top", illustration.large6.height() - (illustration.large3inside.height() * 2) );
     $('.illustration .cover-close').height( illustration.large6.height() + 20);
 
+    illustration.large3inside.find('div').addClass('shadow');
+
     illustration.carousel.carousel({
         interval: false
     }).on('slide.bs.carousel', function () {
