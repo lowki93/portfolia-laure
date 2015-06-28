@@ -62,6 +62,8 @@ header
   +futura(medium)
   font-size: 18px
   text-transform: uppercase
+  img
+    width: 450px
   a
     width: 55px
     height: 55px
@@ -229,7 +231,6 @@ header
                 color: $lightBlack
               p
                 font-size: 24px
-                width: 40%
                 &:last-child
                   +futura(light)
       .carousel-control
@@ -264,15 +265,21 @@ header
         height: 100%
         p
           +futura(light)
-          color: $otherLightGrey
-          font-size: 40px
+          color: $black
+          font-size: 50px
           line-height: 20px
           margin: 0
+          position: relative
           span
-            text-transform: uppercase
-            +futura(medium)
-            color: $lightGrey
-            font-size: 16px
+            &:first-child
+              font-size: 15px
+              position: absolute
+              top: -6px
+            &:last-child
+              text-transform: uppercase
+              +futura(medium)
+              color: $black
+              font-size: 16px
 .workExperience
   +futura(medium)
   background-color: $lightWhite
@@ -313,7 +320,7 @@ header
             background-color: $white
             border: 2px solid $red
         .pdfCv
-          color: $red
+          color: $black
           font-size: 16px
           text-transform: uppercase
           .upload-cv
@@ -379,6 +386,7 @@ header
                   font-size: 14px
                   color: $darkBlack
                 &.experienceDate
+                  +futura(light)
                   font-size: 13px
                   color: $lightGrey
 
@@ -440,7 +448,7 @@ header
         text-transform: uppercase
         border-radius: 5px
         &:hover
-          background-color: $white
+          background-color: $darkWhite
           color: $red
           border: 2px solid $red
   .follow
