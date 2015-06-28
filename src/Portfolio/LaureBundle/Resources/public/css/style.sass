@@ -32,7 +32,7 @@ header
       a
         +futura(medium)
         color: $white
-        &:hover
+        &:hover, &:visited, &:focus
           color: $white
     &.logo
       li
@@ -48,13 +48,14 @@ header
           &:hover
             background: url('../images/active.png') center 42px no-repeat
 
+
 .scroll-area
   position: relative
   overflow: auto
   height: 100%
 
 .homepage
-  background-image: url('../images/background-homepage.png')
+  background-image: url('../images/background-homepage.jpg')
   background-size: cover
   background-position: center center
   text-align: center
@@ -150,10 +151,6 @@ header
     .image-content > div
       margin:
         bottom: 15px
-      .columns
-        padding:
-          left: 10px
-          right: 10px
     .image-color
       background-color: $greyBackground
       width: 100%
@@ -187,10 +184,12 @@ header
           &.large-6
             position: relative
             .infoIllustration
+              width: 100%
               +futura(medium)
               position: absolute
               bottom: 0
               padding: 10px
+              padding-left: 15px
               color: $lightBlack
               h3
                 color: $lightBlack
@@ -200,6 +199,9 @@ header
             margin:
               top: 40px
         .information
+          width: 100%
+          position: absolute
+          bottom: 0
           +futura(medium)
           padding: 10px
           background-color: $white
@@ -208,9 +210,10 @@ header
             color: $lightGrey
           p
             color: $darkGrey
-            &:first-child
+            &.first-info
               font-size: 16px
-            &:last-child
+              margin-bottom: 15px
+            &.second-info
               +futura(light)
               font-size: 12px
     .carousel
@@ -219,6 +222,9 @@ header
         text-align: center
         .item
           text-align: center
+          img
+            width: $carouselWidth
+            display: inline-block
           .information-content
             text-align: center
             .information-carousel
@@ -230,7 +236,7 @@ header
               h3
                 color: $lightBlack
               p
-                font-size: 24px
+                font-size: 20px
                 &:last-child
                   +futura(light)
       .carousel-control
@@ -266,7 +272,7 @@ header
         p
           +futura(light)
           color: $black
-          font-size: 50px
+          font-size: 43px
           line-height: 20px
           margin: 0
           position: relative
@@ -279,7 +285,7 @@ header
               text-transform: uppercase
               +futura(medium)
               color: $black
-              font-size: 16px
+              font-size: 13px
 .workExperience
   +futura(medium)
   background-color: $lightWhite
@@ -325,7 +331,7 @@ header
           text-transform: uppercase
           .upload-cv
             display: inline-block
-            margin-bottom: -4px
+            margin-bottom: -7px
       &:last-child
         position: relative
         border-left: 2px solid $grey

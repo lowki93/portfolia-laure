@@ -189,7 +189,7 @@ $(document).ready(function($){
         illustration.list.hide();
 
         illustration.carouselItem.width($('#carousel-illustration').width());
-        $('.carousel img').magnify();
+        //$('.carousel img').magnify();
 
     });
 
@@ -213,16 +213,28 @@ $(document).ready(function($){
         });
 
         switch(url) {
+            case '#homepage':
+                hideIllustration();
+                hidePortfolio();
+                break;
             case '#portfolio':
-                $('.portfolio ul').show();
-                portfolio.carousel.hide();
+                hidePortfolio();
                 break;
             case '#illustration':
-                illustration.list.show();
-                illustration.carousel.hide();
+                hideIllustration();
                 break;
         }
 
+    };
+
+    var hidePortfolio = function() {
+        $('.portfolio ul').show();
+        portfolio.carousel.hide();
+    };
+
+    var hideIllustration = function() {
+        illustration.list.show();
+        illustration.carousel.hide();
     };
 
 });

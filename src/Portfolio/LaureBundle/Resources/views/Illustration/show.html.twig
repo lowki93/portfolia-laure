@@ -19,6 +19,7 @@
         <ul class="cover-close arrow row">
             {% set classIllustration = '' %}
             {% set nb = 0 %}
+            {% set infoClass = '' %}
             {% for illustration in illustrations %}
                 {% if nb is divisible by(4) or loop.first %}
                     {% set arrayClass = [firstArray, secondArray, thirdArray] %}
@@ -42,15 +43,20 @@
                         <div class="imageIllustration {% if class == 'large-6' %}shadow{% endif %}"
                              data-id="{{ loop.index - 1 }}"
                              style="background-image: url('/uploads/illustration/{{ illustration.path }}');">
+                            {% if infoClass == 'information' %}
                         </div>
+                            {% endif %}
                         {% if class == 'large-6' or class == 'large-3 secondIllustration' %}
                             <div class="{{ infoClass }}">
                                 <h3>{{ illustration.type|upper }}</h3>
-                                <p>{{ illustration.title|capitalize }}</p>
+                                <p class="first-info">{{ illustration.title|capitalize }}</p>
                                 {% if class == 'large-3 secondIllustration' %}
-                                    <p>{{ illustration.description|capitalize }}</p>
+                                    <p class="second-info">{{ illustration.description|capitalize }}</p>
                                 {% endif %}
                             </div>
+                            {% if infoClass  == 'infoIllustration' %}
+                                </div>
+                            {% endif %}
                         {% endif %}
                     {% if class == "large-3 end last" or class == 'large-3 end'%}
                         </div>

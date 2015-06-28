@@ -4,8 +4,8 @@
         {% for illustration in illustrations %}
             <div class="item" data-slide="{{ loop.index - 1 }}">
                 <img src="/uploads/illustration/{{ illustration.path }}"
-                     alt="slide {{ loop.index }}"
-                     data-magnify-src="/uploads/illustration/{{ illustration.path }}" />
+                     alt="slide {{ loop.index }}" />
+                     {#data-magnify-src="/uploads/illustration/{{ illustration.path }}" />#}
                 <div class="information-content">
                     <div class="information-carousel">
                         <h3>{{ illustration.type|upper }}</h3>
