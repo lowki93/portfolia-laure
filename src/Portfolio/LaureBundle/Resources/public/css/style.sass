@@ -193,8 +193,10 @@ header
               color: $lightBlack
               h3
                 color: $lightBlack
+                margin-bottom: 5px
               p
                 font-size: 24px
+                margin-bottom: 10px
           &.last
             margin:
               top: 40px
@@ -203,19 +205,24 @@ header
           position: absolute
           bottom: 0
           +futura(medium)
-          padding: 10px
+          padding:
+            left: 15px
+            right: 10px
+            bottom: 10px
           background-color: $white
           border-radius: 0 0 5px 5px
           h3
             color: $lightGrey
+            margin-bottom: 5px
           p
             color: $darkGrey
             &.first-info
               font-size: 16px
-              margin-bottom: 15px
+              margin-bottom: 5px
             &.second-info
               +futura(light)
               font-size: 12px
+              margin-bottom: 10px
     .carousel
       display: none
       .carousel-inner
@@ -235,13 +242,14 @@ header
               +futura(medium)
               h3
                 color: $lightBlack
+                font-size: 18px
               p
-                font-size: 20px
+                font-size: 16px
                 &:last-child
                   +futura(light)
       .carousel-control
         background-image: none
-        top: 50%
+        top: 320px
         bottom: auto
         width: auto
 
